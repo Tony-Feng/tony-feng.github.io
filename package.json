@@ -1,6 +1,11 @@
 {
   "name": "tony-feng.github.io",
   "version": "0.1.0",
+  "description": "A codebase for my personal website app, it's developed based on my previous project.",
+  "author": "Tony Feng",
+  "keywords": [
+    "react"
+  ],
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
