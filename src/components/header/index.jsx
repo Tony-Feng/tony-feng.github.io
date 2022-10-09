@@ -1,8 +1,9 @@
 import React, { Component, createRef } from 'react';
-import { Link as RouterLink, withRouter } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Tabs, Tab, IconButton, Grid, Drawer, CssBaseline, Tooltip } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { styled } from '@mui/system';
+import withRouter from '../../utils/withRouter';
 
 const StyledTab = styled(Tab) (
   {
