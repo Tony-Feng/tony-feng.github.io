@@ -6,6 +6,7 @@ A codebase for my personal website app, it's developed based on my previous proj
 ```
 npm i -g create-react-app --use-npm
 create-react-app . --use-npm
+npm i react-router-dom @loadable/component
 ```
 
 ## Execution

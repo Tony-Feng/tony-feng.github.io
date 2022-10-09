@@ -1,5 +1,5 @@
 import React, { Component, Suspense } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy } from '@loadable/component';
 import Loading from './pages/loading';
 
@@ -11,10 +11,10 @@ export default class App extends Component {
     return (
       <BrowserRouter>
         <Suspense fallback={ <Loading /> }>
-          <Switch>
+          <Routes>
             <Route path="/" exact component={ () => <Home /> } />
-            <Route component={ Error } />
-          </Switch>
+            <Route component={ <Error /> } />
+          </Routes>
         </Suspense>
       </BrowserRouter>
     );
