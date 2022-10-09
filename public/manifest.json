@@ -1,11 +1,16 @@
 {
-  "short_name": "Personal Website",
+  "short_name": "Personal Website by Tony Feng",
   "name": "A personal website app developed based on my previous project.",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
     },
     {
       "src": "logo512.png",
