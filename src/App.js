@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy } from '@loadable/component';
 import Loading from './pages/loading';
 
-const Home = lazy(() => import('./containers/home'));
+const Home = lazy(() => import('./pages/home'));
 const Error = lazy(() => import('./pages/error'));
 
 export default class App extends Component {

@@ -3,10 +3,12 @@
 A codebase for my personal website app, it's developed based on my previous project.
 
 ## Installation
+
 ```
 npm i -g create-react-app --use-npm
 create-react-app . --use-npm
-npm i react-router-dom @loadable/component
+npm i react-router-dom prop-types @mui/material @mui/icons-material \
+  @emotion/react @emotion/styled @mui/system @loadable/component react-countdown
 ```
 
 ## Execution
