@@ -1,29 +1,11 @@
-import React, { useState, useEffect, useRef, useImperativeHandle } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { AppBar, Grid, Typography } from '@mui/material';
-
-// const getAppBarHeight = (props) => {
-//   props.handleFooterHeight(appBarRef.current.clientHeight);
-// };
 
 export default function Footer(props) {
 
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
   const appBarRef = useRef();
-
-  // componentDidMount() {
-  //   this.getAppBarHeight();
-  //
-  //   window.addEventListener("resize", this.getAppBarHeight);
-  // };
-
-  // componentWillUnmount() {
-  //   window.removeEventListener("resize", this.getAppBarHeight);
-  // };
-
-  // const getAppBarHeight = (props) => {
-  //   props.handleFooterHeight(appBarRef.current.clientHeight);
-  // };
 
   const getAppBarHeight = () => {
     props.handleFooterHeight(appBarRef.current.clientHeight);
