@@ -4,7 +4,8 @@
   "description": "A codebase for my personal website app, it's developed based on my previous project.",
   "author": "Tony Feng",
   "keywords": [
-    "react"
+    "react",
+    "mui"
   ],
   "private": true,
   "dependencies": {
