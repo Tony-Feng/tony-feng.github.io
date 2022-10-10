@@ -20,11 +20,11 @@ const Page = ({ children }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      if (isFirstTime) {
+      if (isFirstTime) { // if it's the first time a user browses this website, then use browser's preference for dark mode
         dispatch(isDarkSet(defaultDark));
         dispatch(isFirstTimeSet(false));
       }
-    }, []
+    }, [defaultDark, dispatch, isFirstTime]
   );
 
   return (

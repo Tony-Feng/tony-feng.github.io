@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Tabs, IconButton, Grid, Drawer, CssBaseline, Tooltip, Switch } from '@mui/material';
 import { Menu, LightMode, DarkMode } from '@mui/icons-material';
@@ -17,10 +17,13 @@ const convertToValue = (location, patterns) => { // map path with patterns to de
 
 const Header = (props) => {
 
-  const patterns = [ // global and case-insensitive
-    /^(\/|)$/gi, // home page: empty or /
-    /^(\/projects)(\/|)$|^(\/project\/)(\d+)(\/|)$/gi // project page: /projects or /projects/ or /project/12 or /project/12/
-  ];
+  const patterns = useMemo(() => {
+      return [ // global and case-insensitive
+        /^(\/|)$/gi, // home page: empty or /
+        /^(\/projects)(\/|)$|^(\/project\/)(\d+)(\/|)$/gi // project page: /projects or /projects/ or /project/12 or /project/12/
+      ];
+    }, []
+  );
 
   const [isMobile, setIsMobile] = useState(false);
   const [isDrawerOn, setIsDrawerOn] = useState(false);
@@ -30,11 +33,13 @@ const Header = (props) => {
   const dispatch = useDispatch();
 
   const appBarRef = useRef();
+  const { handleHeaderHeight } = props;
 
-  const handleChange = () => {
-    const idx = convertToValue(window.location.pathname, patterns);
-    setValue(idx);
-  };
+  const handleChange = useCallback(() => {
+      const idx = convertToValue(window.location.pathname, patterns);
+      setValue(idx);
+    }, [patterns]
+  );
 
   const handleDrawerOn = () => {
     setIsDrawerOn(true);
@@ -81,9 +86,15 @@ const Header = (props) => {
     );
   };
 
-  const getAppBarHeight = () => {
-    props.handleHeaderHeight(appBarRef.current.clientHeight);
-  };
+  // const getAppBarHeight = useCallback(() => {
+  //     props.handleHeaderHeight(appBarRef.current.clientHeight);
+  //   }, [appBarRef]
+  // );
+
+  const getAppBarHeight = useCallback(() => {
+      handleHeaderHeight(appBarRef.current.clientHeight);
+    }, [handleHeaderHeight, appBarRef]
+  );
 
   useEffect(() => {
 
@@ -99,7 +110,7 @@ const Header = (props) => {
         window.removeEventListener("resize", setResponsiveView);
         window.removeEventListener("resize", getAppBarHeight);
       }
-    }, []
+    }, [getAppBarHeight, handleChange]
   );
 
   // const { name } = props.info;
