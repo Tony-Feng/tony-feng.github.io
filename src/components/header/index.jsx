@@ -3,7 +3,9 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Tabs, IconButton, Grid, Drawer, CssBaseline, Tooltip, Switch } from '@mui/material';
 import { Menu, LightMode, DarkMode } from '@mui/icons-material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { useSelector, useDispatch } from 'react-redux';
 import { StyledTab, TitleBox } from '../../utils/styled-components';
+import { inv } from '../../slices/is-dark-slice';
 
 const light = {
   palette: {
@@ -23,11 +25,13 @@ const Header = (props) => {
   const [isDrawerOn, setIsDrawerOn] = useState(false);
   const [location, setLocation] = useState(window.location.pathname);
   const [value, setValue] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  // const [isDark, setIsDark] = useState(false);
   const patterns = [ // global and case-insensitive
     /^(\/|)$/gi, // home page: empty or /
     /^(\/projects)(\/|)$|^(\/project\/)(\d+)(\/|)$/gi // project page: /projects or /projects/ or /project/12 or /project/12/
   ];
+  const isDark = useSelector(state => state.isDarkInv.isDark);
+  const dispatch = useDispatch();
 
   const appBarRef = useRef();
 
@@ -92,9 +96,9 @@ const Header = (props) => {
     props.handleHeaderHeight(appBarRef.current.clientHeight);
   };
 
-  const handleTheme = () => {
-    setIsDark(!isDark);
-  };
+  // const handleTheme = () => {
+  //   setIsDark(!isDark);
+  // };
 
   useEffect(() => {
 
@@ -130,7 +134,8 @@ const Header = (props) => {
               </Grid>
               <Grid item sx={{ minHeight: "inherit" }} zeroMinWidth>
                 <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
-                  <Switch checked={ isDark } icon={ <LightMode /> } checkedIcon={ <DarkMode /> } size="large" onChange={ handleTheme } value="Dark Mode" />
+                  {/*<Switch checked={ isDark } icon={ <LightMode /> } checkedIcon={ <DarkMode /> } size="large" onChange={ handleTheme } value="Dark Mode" />*/}
+                  <Switch checked={ isDark } icon={ <LightMode /> } checkedIcon={ <DarkMode /> } size="large" onChange={ () => dispatch(inv()) } value="Dark Mode" />
                   {
                     isMobile ? mobileView() : desktopView()
                   }
