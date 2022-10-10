@@ -17,7 +17,7 @@ export default function Footer(props) {
       return () => {
         window.removeEventListener("resize", getAppBarHeight);
       };
-    }
+    }, []
   );
 
   return (
