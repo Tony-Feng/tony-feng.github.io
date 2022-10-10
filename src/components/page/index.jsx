@@ -1,43 +1,36 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@mui/material';
-import Header from '../../components/header';
+// import Header from '../../components/header';
 import BackToTopButton from '../../components/back-to-top-button';
 import Footer from '../../components/footer';
 
-export default class Page extends Component {
+export default function Page({ children }) {
 
-  state = {
-    headerHeight: 0,
-    footerHeight: 0 // use 0 instead of null to prevent arithmetic error
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const [footerHeight, setFooterHeight] = useState(0); // use 0 instead of null to prevent arithmetic error
+
+  // const handleHeaderHeight = (height) => {
+  //   setHeaderHeight({ headerHeight: height} );
+  // };
+
+  const handleFooterHeight = (height) => {
+    setFooterHeight({ footerHeight: height} );
   };
 
-  handleHeaderHeight = (height) => {
-    this.setState({ headerHeight: height} );
-  };
+  return (
+    <div>
+      {/*<Header handleHeaderHeight={ setHeaderHeight.bind(this) } />*/}
+      <BackToTopButton threshold={ 50 } />
 
-  handleFooterHeight = (height) => {
-    this.setState({ footerHeight: height} );
-  };
+      <Grid container spacing={ 0 } direction="column" alignItems="center" justifyContent="center" sx={{ minHeight: `calc(100vh - ${Math.round(headerHeight + footerHeight)}px)` }}>
 
-  render() {
-    const { headerHeight, footerHeight } = this.state;
-    const { children } = this.props;
-
-    return (
-      <div>
-        <Header handleHeaderHeight={ this.handleHeaderHeight.bind(this) } />
-        <BackToTopButton threshold={ 50 } />
-
-        <Grid container spacing={ 0 } direction="column" alignItems="center" justifyContent="center" sx={{ minHeight: `calc(100vh - ${Math.round(headerHeight + footerHeight)}px)` }}>
-
-          <Grid item xs={ 12 }>
-            { children }
-          </Grid>
-
+        <Grid item xs={ 12 }>
+          { children }
         </Grid>
 
-        <Footer handleFooterHeight={ this.handleFooterHeight.bind(this) } />
-      </div>
-    );
-  };
+      </Grid>
+
+      <Footer handleFooterHeight={ setFooterHeight.bind(this) } />
+    </div>
+  )
 }

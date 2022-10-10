@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Grid } from '@mui/material';
 import LoadingSpinner from '../../components/loading-spinner';
 
-export default class Loading extends Component {
+export default function Loading() {
 
-  render() {
-    return (
-      <div>
-        <Grid container spacing={ 0 } direction="column" alignItems="center" justifyContent="center" sx={{ minHeight: "100vh" }}>
-          <Grid item xs={ 12 }>
-            <LoadingSpinner />
-          </Grid>
+  return (
+    <div>
+      <Grid container spacing={ 0 } direction="column" alignItems="center" justifyContent="center" sx={{ minHeight: "100vh" }}>
+        <Grid item xs={ 12 }>
+          <LoadingSpinner />
         </Grid>
-      </div>
-    );
-  };
+      </Grid>
+    </div>
+  )
 
 }
