@@ -22,7 +22,7 @@ const Header = (props) => {
   const appBarRef = useRef();
 
   const handleChange = () => {
-    const locationAfterChange = window.location.pathname;
+    const locationAfterChange = props.location.pathname;
     convertToValue(locationAfterChange);
   };
 
@@ -84,7 +84,7 @@ const Header = (props) => {
 
   useEffect(() => {
 
-      setLocation(window.location.pathname);
+      setLocation(location.pathname);
       convertToValue(location.pathname);
 
       setResponsiveView();
