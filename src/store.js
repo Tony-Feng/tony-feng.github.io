@@ -3,15 +3,22 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import isDarkReducer from './slices/is-dark-slice';
+import isFirstTimeReducer from './slices/is-first-time-slice';
 
-const persistConfig = {
+const isDarkPersistConfig = {
   key: "isDark",
+  storage
+};
+
+const isFirstTimePersistConfig = {
+  key: "isFirstTime",
   storage
 };
 
 const rootReducer = combineReducers(
   {
-    isDarkRdc: isDarkReducer
+    isDarkRdc: isDarkReducer,
+    isFirstTimeRdc: isFirstTimeReducer
   }
 );
 
