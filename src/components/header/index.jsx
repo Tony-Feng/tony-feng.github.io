@@ -46,11 +46,11 @@ export default function Header(props) {
   };
 
   const handleDrawerOn = () => {
-    setIsDrawerOn({ isDrawerOn: true });
+    setIsDrawerOn(true);
   };
 
   const handleDrawerOff = () => {
-    setIsDrawerOn({ isDrawerOn: false });
+    setIsDrawerOn(false);
   };
 
   const convertToValue = (location) => { // map path with patterns to determine correct index, index is for set value of selected tab
@@ -98,6 +98,7 @@ export default function Header(props) {
   };
 
   useEffect(() => {
+
       setLocation({ location: window.location.pathname });
       convertToValue(location.pathname);
 
