@@ -86,11 +86,6 @@ const Header = (props) => {
     );
   };
 
-  // const getAppBarHeight = useCallback(() => {
-  //     props.handleHeaderHeight(appBarRef.current.clientHeight);
-  //   }, [appBarRef]
-  // );
-
   const getAppBarHeight = useCallback(() => {
       handleHeaderHeight(appBarRef.current.clientHeight);
     }, [handleHeaderHeight, appBarRef]
