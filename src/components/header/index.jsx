@@ -3,7 +3,6 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Tabs, Tab, IconButton, Grid, Drawer, CssBaseline, Tooltip } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { styled } from '@mui/system';
-// import withRouter from '../../utils/withRouter';
 
 const StyledTab = styled(Tab) (
   {
@@ -28,7 +27,7 @@ const TitleBox = styled(Box) (
   }
 );
 
-function Header(props) {
+export default function Header(props) {
 
   const [isMobile, setIsMobile] = useState(false);
   const [isDrawerOn, setIsDrawerOn] = useState(false);
@@ -112,7 +111,7 @@ function Header(props) {
         window.removeEventListener("resize", setResponsiveView);
         window.removeEventListener("resize", getAppBarHeight);
       }
-    }
+    }, []
   );
 
   // const { name } = props.info;
@@ -139,6 +138,3 @@ function Header(props) {
     </div>
   );
 }
-
-// export default withRouter(Header);
-export default Header;
