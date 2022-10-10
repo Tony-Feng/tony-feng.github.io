@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Fab, Box, useScrollTrigger, Zoom } from '@mui/material';
 import { KeyboardArrowUp } from '@mui/icons-material';
+import PropTypes from 'prop-types';
 
-function ScrollTop(props) {
+const ScrollTop = (props) => {
 
   const { threshold } = props;
 
@@ -31,7 +31,7 @@ function ScrollTop(props) {
       </Box>
     </Zoom>
   );
-}
+};
 
 ScrollTop.propTypes = {
   threshold: PropTypes.number
@@ -41,11 +41,13 @@ ScrollTop.defaultProps = {
   threshold: 20
 };
 
-export default function BackToTopButton(props) {
+const BackToTopButton = (props) => {
 
   const { threshold } = props;
 
   return (
-    <ScrollTop threshold = {threshold} />
+    <ScrollTop threshold={ threshold } />
   );
 };
+
+export default BackToTopButton;

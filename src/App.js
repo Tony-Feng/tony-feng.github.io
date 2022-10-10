@@ -6,7 +6,7 @@ import Loading from './pages/loading';
 const Home = lazy(() => import('./pages/home'));
 const Error = lazy(() => import('./pages/error'));
 
-export default function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Suspense fallback={ <Loading /> }>
@@ -17,4 +17,6 @@ export default function App() {
       </Suspense>
     </BrowserRouter>
   );
-}
+};
+
+export default App;

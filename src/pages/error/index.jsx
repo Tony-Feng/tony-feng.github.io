@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Countdown from 'react-countdown';
 import Page from '../../components/page';
 
-function renderer({ hours, minutes, seconds, completed }) {
+const renderer = ({ hours, minutes, seconds, completed }) => {
   if (completed) {
     return (
       <Navigate to="/">Redirect</Navigate>
@@ -15,20 +15,12 @@ function renderer({ hours, minutes, seconds, completed }) {
       <Typography variant="h2" component="div" align="center">Nothing here, will return to home page in { seconds }s</Typography>
     );
   }
-}
+};
 
-Error.propTypes = {
-  isPageRequired: PropTypes.bool
-}
+const Error = ({ isPageRequired }) => {
 
-Error.defaultProps = {
-  isPageRequired: true
-}
-
-export default function Error({ isPageRequired }) {
-
-  const [countdown, setCountdown] = useState(5);
-  const [currentTime, setCurrentTime] = useState(Date.now());
+  const [countdown, _] = useState(5);
+  const [currentTime, __] = useState(Date.now());
 
   return (
     isPageRequired ? (
@@ -38,5 +30,15 @@ export default function Error({ isPageRequired }) {
     ) : (
       <Countdown date={ currentTime + (Math.round(countdown * 1000)) } renderer={ renderer } />
     )
-  )
-}
+  );
+};
+
+Error.propTypes = {
+  isPageRequired: PropTypes.bool
+};
+
+Error.defaultProps = {
+  isPageRequired: true
+};
+
+export default Error;

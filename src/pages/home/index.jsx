@@ -1,9 +1,8 @@
-import React, { Component, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Avatar, Grid, Box, Typography, Stack, IconButton, Chip, Paper, Button, Tooltip } from '@mui/material';
 import { Email, LinkedIn, GitHub, KeyboardArrowRight } from '@mui/icons-material';
 import { styled } from '@mui/system';
-import { lazy } from '@loadable/component';
 import Page from '../../components/page';
 import Loading from '../../pages/loading';
 
@@ -16,7 +15,7 @@ const TooltipTag = styled(Typography) (
   }
 );
 
-export default function Home(props) { // todo: maybe use timeline to display education or experience
+const Home = () => { // todo: maybe use timeline to display education or experience
 
   // const { name, email, linkedin, github, bio, tags } = props.info;
 
@@ -98,4 +97,6 @@ export default function Home(props) { // todo: maybe use timeline to display edu
 
     </Page>
   );
-}
+};
+
+export default Home;

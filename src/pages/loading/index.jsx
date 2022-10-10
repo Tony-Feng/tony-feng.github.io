@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from '@mui/material';
 import LoadingSpinner from '../../components/loading-spinner';
 
-export default function Loading() {
+const Loading = () => {
 
   return (
     <div>
@@ -12,6 +12,8 @@ export default function Loading() {
         </Grid>
       </Grid>
     </div>
-  )
+  );
 
-}
+};
+
+export default Loading;

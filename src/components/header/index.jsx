@@ -27,7 +27,7 @@ const TitleBox = styled(Box) (
   }
 );
 
-export default function Header(props) {
+const Header = (props) => {
 
   const [isMobile, setIsMobile] = useState(false);
   const [isDrawerOn, setIsDrawerOn] = useState(false);
@@ -36,7 +36,7 @@ export default function Header(props) {
   const patterns = [ // global and case-insensitive
     /^(\/|)$/gi, // home page: empty or /
     /^(\/projects)(\/|)$|^(\/project\/)(\d+)(\/|)$/gi // project page: /projects or /projects/ or /project/12 or /project/12/
-  ]
+  ];
 
   const appBarRef = useRef();
 
@@ -138,4 +138,6 @@ export default function Header(props) {
       </AppBar>
     </div>
   );
-}
+};
+
+export default Header;

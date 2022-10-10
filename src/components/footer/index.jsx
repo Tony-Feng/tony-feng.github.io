@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AppBar, Grid, Typography } from '@mui/material';
 
-export default function Footer(props) {
+const Footer = (props) => {
 
   const [currentYear, _] = useState(new Date().getFullYear());
 
@@ -31,4 +31,6 @@ export default function Footer(props) {
       </AppBar>
     </div>
   );
-}
+};
+
+export default Footer;

@@ -4,7 +4,7 @@ import Header from '../../components/header';
 import BackToTopButton from '../../components/back-to-top-button';
 import Footer from '../../components/footer';
 
-export default function Page({ children }) {
+const Page = ({ children }) => {
 
   const [headerHeight, setHeaderHeight] = useState(0);
   const [footerHeight, setFooterHeight] = useState(0); // use 0 instead of null to prevent arithmetic error
@@ -32,5 +32,7 @@ export default function Page({ children }) {
 
       <Footer handleFooterHeight={ setFooterHeight.bind(this) } />
     </div>
-  )
-}
+  );
+};
+
+export default Page;
