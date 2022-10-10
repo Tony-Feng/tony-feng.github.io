@@ -7,7 +7,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const light = {
   palette: {
-    mode: "light",
+    mode: "light"
   }
 };
 
@@ -100,7 +100,7 @@ const Header = (props) => {
             <Menu sx={{ fontSize: 40 }} />
           </IconButton>
         </Tooltip>
-        <Drawer anchor="right" open={ isDrawerOn } onClose={ handleDrawerOff } PaperProps={{ sx: { bgcolor: "#9CF", boxShadow: 0 } }}>
+        <Drawer anchor="right" open={ isDrawerOn } onClose={ handleDrawerOff } PaperProps={{ sx: { bgcolor: (getThemeColor()), boxShadow: 0 } }}>
           <Tabs value={ value } variant="scrollable" orientation="vertical" TabIndicatorProps={{ sx: { bgcolor: "#4DA6FF", height: "100%", width: "4%", borderRadius: "20px 0px 0px 20px" } }}>
 
             <StyledTab key="Home" label="Home" component={ RouterLink } to="/" />
@@ -117,6 +117,10 @@ const Header = (props) => {
 
   const handleTheme = () => {
     setIsDark(!isDark);
+  };
+
+  const getThemeColor = () => {
+    return isDark ? "#121212" : "#9CF";
   };
 
   useEffect(() => {
@@ -145,7 +149,7 @@ const Header = (props) => {
     <div>
       <ThemeProvider theme={ isDark ? createTheme(dark) : createTheme(light) }>
         <CssBaseline /> {/* avoid app bar to have extra margin in static position */}
-        <AppBar position="static" sx={{ bgcolor: "#9CF", boxShadow: 0, textOverflow: "ellipsis", overflow: "hidden" }} ref={ appBarRef }>
+        <AppBar position="static" sx={{ bgcolor: (getThemeColor()), boxShadow: 0, textOverflow: "ellipsis", overflow: "hidden" }} ref={ appBarRef }>
           <Toolbar id="back-to-top-anchor">
             <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
               <Grid item zeroMinWidth>
