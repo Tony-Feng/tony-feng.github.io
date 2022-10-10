@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Tabs, Tab, IconButton, Grid, Drawer, CssBaseline, Tooltip, FormGroup, FormControlLabel, Switch } from '@mui/material';
-import { Menu } from '@mui/icons-material';
+import { Menu, LightMode, DarkMode } from '@mui/icons-material';
 import { styled } from '@mui/system';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -151,19 +151,12 @@ const Header = (props) => {
               <Grid item zeroMinWidth>
                 <TitleBox>{ name }</TitleBox>
               </Grid>
-              {/*<Grid item sx={{ minHeight: "inherit" }} zeroMinWidth>*/}
-              {/*  {*/}
-              {/*    isMobile ? mobileView() : desktopView()*/}
-              {/*  }*/}
-              {/*</Grid>*/}
-              {/*<Switch checked={ isDark } onChange={ handleTheme } />*/}
               <Grid item sx={{ minHeight: "inherit" }} zeroMinWidth>
                 <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
-                  <Switch checked={ isDark } onChange={ handleTheme } />
+                  <Switch checked={ isDark } icon={ <LightMode /> } checkedIcon={ <DarkMode /> } size="large" onChange={ handleTheme } value="Dark Mode" />
                   {
                     isMobile ? mobileView() : desktopView()
                   }
-
                 </Grid>
               </Grid>
             </Grid>
