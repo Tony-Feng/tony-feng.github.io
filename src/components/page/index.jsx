@@ -28,10 +28,10 @@ const Page = ({ children }) => {
   const isDark = useSelector(state => state.isDarkInv.isDark);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(set(defaultDark))
-    }, []
-  );
+  // useEffect(() => {
+  //   dispatch(set(defaultDark))
+  //   }, []
+  // );
 
   return (
     <div>

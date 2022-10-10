@@ -1,15 +1,21 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import isDarkReducer from './slices/is-dark-slice';
 
 const persistConfig = {
-  key: "root",
+  key: "isDark",
   storage
 };
 
-const persistedReducer = persistReducer(persistConfig, isDarkReducer);
+const rootReducer = combineReducers(
+  {
+    isDarkInv: isDarkReducer
+  }
+);
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore(
   {
