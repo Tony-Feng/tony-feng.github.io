@@ -115,7 +115,7 @@ const Header = (props) => {
             </Grid>
             <Grid item sx={{ minHeight: "inherit" }} zeroMinWidth>
               <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
-                <Switch checked={ isDark } icon={ <LightMode /> } checkedIcon={ <DarkMode /> } size="large" onChange={ () => dispatch(inv()) } value="Dark Mode" />
+                <Switch checked={ isDark } icon={ <LightMode sx={{ fontSize: 20 }} /> } checkedIcon={ <DarkMode sx={{ fontSize: 20 }} /> } size="large" onChange={ () => dispatch(inv()) } value="Dark Mode" />
                 {
                   isMobile ? mobileView() : desktopView()
                 }
