@@ -16,7 +16,7 @@ const Header = (props) => {
     /^(\/|)$/gi, // home page: empty or /
     /^(\/projects)(\/|)$|^(\/project\/)(\d+)(\/|)$/gi // project page: /projects or /projects/ or /project/12 or /project/12/
   ];
-  const isDark = useSelector(state => state.isDarkInv.isDark);
+  const isDark = useSelector(state => state.isDarkRdc.isDark);
   const dispatch = useDispatch();
 
   const appBarRef = useRef();

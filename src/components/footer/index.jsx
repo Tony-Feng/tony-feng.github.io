@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 const Footer = (props) => {
 
   const [currentYear, ] = useState(new Date().getFullYear());
-  const isDark = useSelector(state => state.isDarkInv.isDark);
+  const isDark = useSelector(state => state.isDarkRdc.isDark);
 
   const appBarRef = useRef();
 

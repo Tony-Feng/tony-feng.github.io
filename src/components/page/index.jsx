@@ -7,25 +7,14 @@ import Header from '../../components/header';
 import BackToTopButton from '../../components/back-to-top-button';
 import Footer from '../../components/footer';
 import { set } from '../../slices/is-dark-slice';
-
-const light = {
-  palette: {
-    mode: "light"
-  }
-};
-
-const dark = {
-  palette: {
-    mode: "dark",
-  }
-};
+import { light, dark } from '../../utils/shared-themes';
 
 const Page = ({ children }) => {
 
   const [headerHeight, setHeaderHeight] = useState(0);
   const [footerHeight, setFooterHeight] = useState(0); // use 0 instead of null to prevent arithmetic error
   const defaultDark = useMediaQuery("(prefers-color-scheme: dark)");
-  const isDark = useSelector(state => state.isDarkInv.isDark);
+  const isDark = useSelector(state => state.isDarkRdc.isDark);
   const dispatch = useDispatch();
 
   // useEffect(() => {

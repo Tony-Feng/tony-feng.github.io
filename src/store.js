@@ -11,7 +11,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers(
   {
-    isDarkInv: isDarkReducer
+    isDarkRdc: isDarkReducer
   }
 );
 
