@@ -1,8 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, AppBar, Toolbar, Tabs, Tab, IconButton, Grid, Drawer, CssBaseline, Tooltip } from '@mui/material';
+import { Box, AppBar, Toolbar, Tabs, Tab, IconButton, Grid, Drawer, CssBaseline, Tooltip, FormGroup, FormControlLabel, Switch } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { styled } from '@mui/system';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const light = {
+  palette: {
+    mode: "light",
+  }
+};
+
+const dark = {
+  palette: {
+    mode: "dark",
+  }
+};
 
 const StyledTab = styled(Tab) (
   {
@@ -33,6 +46,7 @@ const Header = (props) => {
   const [isDrawerOn, setIsDrawerOn] = useState(false);
   const [location, setLocation] = useState(window.location.pathname);
   const [value, setValue] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const patterns = [ // global and case-insensitive
     /^(\/|)$/gi, // home page: empty or /
     /^(\/projects)(\/|)$|^(\/project\/)(\d+)(\/|)$/gi // project page: /projects or /projects/ or /project/12 or /project/12/
@@ -71,7 +85,9 @@ const Header = (props) => {
   const desktopView = () => {
     return (
       <Tabs value={ value } onChange={ handleChange } variant="fullWidth" sx={{ minHeight: "inherit" }} TabIndicatorProps={{ sx: { bgcolor: "#4DA6FF", height: "10%", width: "100%", borderRadius: "20px 20px 0px 0px" } }}>
+
         <StyledTab key="Home" label="Home" component={ RouterLink } to="/" sx={{ mr: 2 }} /> {/* add some space to the right of this tab */}
+
       </Tabs>
     );
   };
@@ -86,7 +102,9 @@ const Header = (props) => {
         </Tooltip>
         <Drawer anchor="right" open={ isDrawerOn } onClose={ handleDrawerOff } PaperProps={{ sx: { bgcolor: "#9CF", boxShadow: 0 } }}>
           <Tabs value={ value } variant="scrollable" orientation="vertical" TabIndicatorProps={{ sx: { bgcolor: "#4DA6FF", height: "100%", width: "4%", borderRadius: "20px 0px 0px 20px" } }}>
+
             <StyledTab key="Home" label="Home" component={ RouterLink } to="/" />
+
           </Tabs>
         </Drawer>
       </Box>
@@ -95,6 +113,10 @@ const Header = (props) => {
 
   const getAppBarHeight = () => {
     props.handleHeaderHeight(appBarRef.current.clientHeight);
+  };
+
+  const handleTheme = () => {
+    setIsDark(!isDark);
   };
 
   useEffect(() => {
@@ -121,21 +143,33 @@ const Header = (props) => {
 
   return (
     <div>
-      <CssBaseline /> {/* avoid app bar to have extra margin in static position */}
-      <AppBar position="static" sx={{ bgcolor: "#9CF", boxShadow: 0, textOverflow: "ellipsis", overflow: "hidden" }} ref={ appBarRef }>
-        <Toolbar id="back-to-top-anchor">
-          <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
-            <Grid item zeroMinWidth>
-              <TitleBox>{ name }</TitleBox>
+      <ThemeProvider theme={ isDark ? createTheme(dark) : createTheme(light) }>
+        <CssBaseline /> {/* avoid app bar to have extra margin in static position */}
+        <AppBar position="static" sx={{ bgcolor: "#9CF", boxShadow: 0, textOverflow: "ellipsis", overflow: "hidden" }} ref={ appBarRef }>
+          <Toolbar id="back-to-top-anchor">
+            <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
+              <Grid item zeroMinWidth>
+                <TitleBox>{ name }</TitleBox>
+              </Grid>
+              {/*<Grid item sx={{ minHeight: "inherit" }} zeroMinWidth>*/}
+              {/*  {*/}
+              {/*    isMobile ? mobileView() : desktopView()*/}
+              {/*  }*/}
+              {/*</Grid>*/}
+              {/*<Switch checked={ isDark } onChange={ handleTheme } />*/}
+              <Grid item sx={{ minHeight: "inherit" }} zeroMinWidth>
+                <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
+                  <Switch checked={ isDark } onChange={ handleTheme } />
+                  {
+                    isMobile ? mobileView() : desktopView()
+                  }
+
+                </Grid>
+              </Grid>
             </Grid>
-            <Grid item sx={{ minHeight: "inherit" }} zeroMinWidth>
-              {
-                isMobile ? mobileView() : desktopView()
-              }
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
+          </Toolbar>
+        </AppBar>
+      </ThemeProvider>
     </div>
   );
 };
