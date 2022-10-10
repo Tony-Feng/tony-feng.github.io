@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useReducer } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Tabs, IconButton, Grid, Drawer, CssBaseline, Tooltip, Switch } from '@mui/material';
 import { Menu, LightMode, DarkMode } from '@mui/icons-material';
@@ -6,37 +6,34 @@ import { useSelector, useDispatch } from 'react-redux';
 import { StyledTab, TitleBox } from '../../utils/styled-components';
 import { isDarkInv } from '../../slices/is-dark-slice';
 
-// const initHeaderState = {
-//   isMobile: false,
-//   isDrawerOn: false,
-//   location: false,
-//   error: '',
-//   isLoggedIn: false,
-// };
-//
-// const headerRdc = (state, action) => {
-//   d
-// };
+const convertToValue = (location, patterns) => { // map path with patterns to determine correct index, index is for set value of selected tab
+  for (const [idx, p] of patterns.entries()) {
+    if (p.test(location)) {
+      return idx;
+    }
+  }
+  return 0;
+};
 
 const Header = (props) => {
-
-  const [isMobile, setIsMobile] = useState(false);
-  const [isDrawerOn, setIsDrawerOn] = useState(false);
-  const [value, setValue] = useState(convertToValue(window.location.pathname, true));
-
-  // const [headerState, headerDispatch] = useReducer(headerRdc, initHeaderState);
 
   const patterns = [ // global and case-insensitive
     /^(\/|)$/gi, // home page: empty or /
     /^(\/projects)(\/|)$|^(\/project\/)(\d+)(\/|)$/gi // project page: /projects or /projects/ or /project/12 or /project/12/
   ];
+
+  const [isMobile, setIsMobile] = useState(false);
+  const [isDrawerOn, setIsDrawerOn] = useState(false);
+  const [value, setValue] = useState(convertToValue(window.location.pathname, patterns));
+
   const isDark = useSelector(state => state.isDarkRdc.isDark);
   const dispatch = useDispatch();
 
   const appBarRef = useRef();
 
   const handleChange = () => {
-    convertToValue(window.location.pathname);
+    const idx = convertToValue(window.location.pathname, patterns);
+    setValue(idx);
   };
 
   const handleDrawerOn = () => {
@@ -45,19 +42,6 @@ const Header = (props) => {
 
   const handleDrawerOff = () => {
     setIsDrawerOn(false);
-  };
-
-  const convertToValue = (location, useReturn=false) => { // map path with patterns to determine correct index, index is for set value of selected tab
-    for (const [idx, p] of patterns.entries()) {
-      if (p.test(location)) {
-        if (useReturn) {
-          return idx;
-        } else {
-          setValue(idx);
-        }
-      }
-    }
-    return 0;
   };
 
   const setResponsiveView = () => {
