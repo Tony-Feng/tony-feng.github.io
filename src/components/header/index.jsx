@@ -22,8 +22,7 @@ const Header = (props) => {
 
   const [isMobile, setIsMobile] = useState(false);
   const [isDrawerOn, setIsDrawerOn] = useState(false);
-  const [location, setLocation] = useState(window.location.pathname);
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState(convertToValue(window.location.pathname, true));
 
   // const [headerState, headerDispatch] = useReducer(headerRdc, initHeaderState);
 
@@ -37,8 +36,7 @@ const Header = (props) => {
   const appBarRef = useRef();
 
   const handleChange = () => {
-    const locationAfterChange = window.location.pathname;
-    convertToValue(locationAfterChange);
+    convertToValue(window.location.pathname);
   };
 
   const handleDrawerOn = () => {
@@ -49,13 +47,17 @@ const Header = (props) => {
     setIsDrawerOn(false);
   };
 
-  const convertToValue = (location) => { // map path with patterns to determine correct index, index is for set value of selected tab
-    patterns.forEach((p, idx) => {
-        if (p.test(location)) {
+  const convertToValue = (location, useReturn=false) => { // map path with patterns to determine correct index, index is for set value of selected tab
+    for (const [idx, p] of patterns.entries()) {
+      if (p.test(location)) {
+        if (useReturn) {
+          return idx;
+        } else {
           setValue(idx);
         }
       }
-    );
+    }
+    return 0;
   };
 
   const setResponsiveView = () => {
@@ -101,14 +103,7 @@ const Header = (props) => {
 
   useEffect(() => {
 
-      console.log(window.location.pathname);
-      console.log(location.pathname);
-      console.log(value);
-
-      setLocation(window.location.pathname);
-      convertToValue(window.location.pathname);
-
-      console.log(value);
+      handleChange();
 
       setResponsiveView();
       window.addEventListener("resize", setResponsiveView);
