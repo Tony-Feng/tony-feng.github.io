@@ -3,6 +3,19 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Tabs, Tab, IconButton, Grid, Drawer, CssBaseline, Tooltip, Switch } from '@mui/material';
 import { Menu, LightMode, DarkMode } from '@mui/icons-material';
 import { styled } from '@mui/system';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const light = {
+  palette: {
+    mode: "light"
+  }
+};
+
+const dark = {
+  palette: {
+    mode: "dark",
+  }
+};
 
 const StyledTab = styled(Tab) (
   {
@@ -33,6 +46,7 @@ const Header = (props) => {
   const [isDrawerOn, setIsDrawerOn] = useState(false);
   const [location, setLocation] = useState(window.location.pathname);
   const [value, setValue] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const patterns = [ // global and case-insensitive
     /^(\/|)$/gi, // home page: empty or /
     /^(\/projects)(\/|)$|^(\/project\/)(\d+)(\/|)$/gi // project page: /projects or /projects/ or /project/12 or /project/12/
@@ -101,6 +115,10 @@ const Header = (props) => {
     props.handleHeaderHeight(appBarRef.current.clientHeight);
   };
 
+  const handleTheme = () => {
+    setIsDark(!isDark);
+  };
+
   useEffect(() => {
 
       setLocation(window.location.pathname);
@@ -125,24 +143,26 @@ const Header = (props) => {
 
   return (
     <div>
-      <CssBaseline /> {/* avoid app bar to have extra margin in static position */}
-      <AppBar position="static" sx={{ bgcolor: (isDark ? "#121212" : "#9CF"), boxShadow: 0, textOverflow: "ellipsis", overflow: "hidden" }} ref={ appBarRef }>
-        <Toolbar id="back-to-top-anchor">
-          <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
-            <Grid item zeroMinWidth>
-              <TitleBox>{ name }</TitleBox>
-            </Grid>
-            <Grid item sx={{ minHeight: "inherit" }} zeroMinWidth>
-              <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
-                <Switch checked={ isDark } icon={ <LightMode /> } checkedIcon={ <DarkMode /> } size="large" onChange={ handleTheme } value="Dark Mode" />
-                {
-                  isMobile ? mobileView() : desktopView()
-                }
+      <ThemeProvider theme={ isDark ? createTheme(dark) : createTheme(light) }>
+        <CssBaseline /> {/* avoid app bar to have extra margin in static position */}
+        <AppBar position="static" sx={{ bgcolor: (isDark ? "#121212" : "#9CF"), boxShadow: 0, textOverflow: "ellipsis", overflow: "hidden" }} ref={ appBarRef }>
+          <Toolbar id="back-to-top-anchor">
+            <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
+              <Grid item zeroMinWidth>
+                <TitleBox>{ name }</TitleBox>
+              </Grid>
+              <Grid item sx={{ minHeight: "inherit" }} zeroMinWidth>
+                <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
+                  <Switch checked={ isDark } icon={ <LightMode /> } checkedIcon={ <DarkMode /> } size="large" onChange={ handleTheme } value="Dark Mode" />
+                  {
+                    isMobile ? mobileView() : desktopView()
+                  }
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
+          </Toolbar>
+        </AppBar>
+      </ThemeProvider>
     </div>
   );
 };
