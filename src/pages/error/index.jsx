@@ -19,8 +19,8 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
 
 const Error = ({ isPageRequired }) => {
 
-  const [countdown, _] = useState(5);
-  const [currentTime, __] = useState(Date.now());
+  const [countdown, ] = useState(5);
+  const [currentTime, ] = useState(Date.now());
 
   return (
     isPageRequired ? (
