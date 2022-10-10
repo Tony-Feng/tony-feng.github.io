@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid, CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { useSelector } from 'react-redux';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../../components/header';
 import BackToTopButton from '../../components/back-to-top-button';
 import Footer from '../../components/footer';
+import { set } from '../../slices/is-dark-slice';
 
 const light = {
   palette: {
@@ -22,7 +24,14 @@ const Page = ({ children }) => {
 
   const [headerHeight, setHeaderHeight] = useState(0);
   const [footerHeight, setFooterHeight] = useState(0); // use 0 instead of null to prevent arithmetic error
+  const defaultDark = useMediaQuery("(prefers-color-scheme: dark)");
   const isDark = useSelector(state => state.isDarkInv.isDark);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(set(defaultDark))
+    }, []
+  );
 
   return (
     <div>

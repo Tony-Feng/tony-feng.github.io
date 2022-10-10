@@ -9,11 +9,14 @@ export const isDarkSlice = createSlice(
     reducers: {
       inv: state => {
         state.isDark = !state.isDark;
+      },
+      set: (state, action) => {
+        state.isDark = action.payload;
       }
     }
   }
 );
 
-export const { inv } = isDarkSlice.actions;
+export const { inv, set } = isDarkSlice.actions;
 
 export default isDarkSlice.reducer;
