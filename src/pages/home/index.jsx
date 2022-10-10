@@ -2,18 +2,9 @@ import React, { Suspense } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Avatar, Grid, Box, Typography, Stack, IconButton, Chip, Paper, Button, Tooltip } from '@mui/material';
 import { Email, LinkedIn, GitHub, KeyboardArrowRight } from '@mui/icons-material';
-import { styled } from '@mui/system';
 import Page from '../../components/page';
 import Loading from '../../pages/loading';
-
-const TooltipTag = styled(Typography) (
-  {
-    m: 0,
-    p: 0,
-    fontSize: "inherit",
-    textAlign: "center"
-  }
-);
+import { TooltipTag } from '../../utils/styled-components';
 
 const Home = () => { // todo: maybe use timeline to display education or experience
 

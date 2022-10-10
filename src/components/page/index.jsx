@@ -9,17 +9,9 @@ const Page = ({ children }) => {
   const [headerHeight, setHeaderHeight] = useState(0);
   const [footerHeight, setFooterHeight] = useState(0); // use 0 instead of null to prevent arithmetic error
 
-  const handleHeaderHeight = (height) => {
-    setHeaderHeight(height);
-  };
-
-  const handleFooterHeight = (height) => {
-    setFooterHeight(height);
-  };
-
   return (
     <div>
-      <Header handleHeaderHeight={ setHeaderHeight.bind(this) } />
+      <Header handleHeaderHeight={ setHeaderHeight } />
       <BackToTopButton threshold={ 50 } />
 
       <Grid container spacing={ 0 } direction="column" alignItems="center" justifyContent="center" sx={{ minHeight: `calc(100vh - ${Math.round(headerHeight + footerHeight)}px)` }}>
@@ -30,7 +22,7 @@ const Page = ({ children }) => {
 
       </Grid>
 
-      <Footer handleFooterHeight={ setFooterHeight.bind(this) } />
+      <Footer handleFooterHeight={ setFooterHeight } />
     </div>
   );
 };

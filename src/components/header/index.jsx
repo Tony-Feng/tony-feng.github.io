@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, AppBar, Toolbar, Tabs, Tab, IconButton, Grid, Drawer, CssBaseline, Tooltip, Switch } from '@mui/material';
+import { Box, AppBar, Toolbar, Tabs, IconButton, Grid, Drawer, CssBaseline, Tooltip, Switch } from '@mui/material';
 import { Menu, LightMode, DarkMode } from '@mui/icons-material';
-import { styled } from '@mui/system';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { StyledTab, TitleBox } from '../../utils/styled-components';
 
 const light = {
   palette: {
@@ -16,29 +16,6 @@ const dark = {
     mode: "dark",
   }
 };
-
-const StyledTab = styled(Tab) (
-  {
-    margin: "2%",
-    color: "white",
-    fontFamily: "Times New Roman",
-    fontWeight: "bold",
-    fontSize: 24,
-    "& .Mui-selected": {
-      color: "white"
-    }
-  }
-);
-
-const TitleBox = styled(Box) (
-  {
-    fontFamily: "Times New Roman",
-    fontWeight: "bold",
-    fontSize: 44, // when this value is greater than 44, the position of indicator of tab in desktop will detach from the selected tab
-    textOverflow: "ellipsis",
-    overflow: "hidden"
-  }
-);
 
 const Header = (props) => {
 
