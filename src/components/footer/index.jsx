@@ -3,7 +3,7 @@ import { AppBar, Grid, Typography } from '@mui/material';
 
 export default function Footer(props) {
 
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [currentYear, _] = useState(new Date().getFullYear());
 
   const appBarRef = useRef();
 

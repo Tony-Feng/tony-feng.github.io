@@ -56,7 +56,7 @@ export default function Header(props) {
   const convertToValue = (location) => { // map path with patterns to determine correct index, index is for set value of selected tab
     patterns.forEach((p, idx) => {
         if (p.test(location)) {
-          setValue({ value: idx });
+          setValue(idx);
         }
       }
     );
@@ -64,8 +64,8 @@ export default function Header(props) {
 
   const setResponsiveView = () => {
     return window.innerWidth < 750
-      ? setIsMobile({ isMobile: true })
-      : setIsMobile({ isMobile: false });
+      ? setIsMobile(true)
+      : setIsMobile(false);
   };
 
   const desktopView = () => {
@@ -99,7 +99,7 @@ export default function Header(props) {
 
   useEffect(() => {
 
-      setLocation({ location: window.location.pathname });
+      setLocation(window.location.pathname);
       convertToValue(location.pathname);
 
       setResponsiveView();

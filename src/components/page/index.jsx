@@ -10,11 +10,11 @@ export default function Page({ children }) {
   const [footerHeight, setFooterHeight] = useState(0); // use 0 instead of null to prevent arithmetic error
 
   const handleHeaderHeight = (height) => {
-    setHeaderHeight({ headerHeight: height} );
+    setHeaderHeight(height);
   };
 
   const handleFooterHeight = (height) => {
-    setFooterHeight({ footerHeight: height} );
+    setFooterHeight(height);
   };
 
   return (
