@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux';
-import infoReducer from './info';
-import projectReducer from './project';
+import { combineReducers } from '@reduxjs/toolkit';
+import isDarkReducer from './is-dark-slice';
+import isFirstTimeReducer from './is-first-time-slice';
 
 export default combineReducers(
   {
-    info: infoReducer,
-    project: projectReducer
+    isDarkRdc: isDarkReducer,
+    isFirstTimeRdc: isFirstTimeReducer
   }
 );

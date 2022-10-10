@@ -7,16 +7,16 @@ export const isDarkSlice = createSlice(
       isDark: false
     },
     reducers: {
-      inv: state => {
+      isDarkInv: state => {
         state.isDark = !state.isDark;
       },
-      set: (state, action) => {
+      isDarkSet: (state, action) => {
         state.isDark = action.payload;
       }
     }
   }
 );
 
-export const { inv, set } = isDarkSlice.actions;
+export const { isDarkInv, isDarkSet } = isDarkSlice.actions;
 
 export default isDarkSlice.reducer;
