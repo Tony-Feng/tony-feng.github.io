@@ -84,7 +84,7 @@ const Header = (props) => {
 
   const desktopView = () => {
     return (
-      <Tabs value={ value } onChange={ handleChange } variant="fullWidth" sx={{ minHeight: "inherit" }} TabIndicatorProps={{ sx: { bgcolor: "#4DA6FF", height: "10%", width: "100%", borderRadius: "20px 20px 0px 0px" } }}>
+      <Tabs value={ value } onChange={ handleChange } variant="fullWidth" sx={{ minHeight: "inherit" }} TabIndicatorProps={{ sx: { bgcolor: (isDark ? "#121212" : "#4DA6FF"), height: "10%", width: "100%", borderRadius: "20px 20px 0px 0px" } }}>
 
         <StyledTab key="Home" label="Home" component={ RouterLink } to="/" sx={{ mr: 2 }} /> {/* add some space to the right of this tab */}
 
@@ -100,8 +100,8 @@ const Header = (props) => {
             <Menu sx={{ fontSize: 40 }} />
           </IconButton>
         </Tooltip>
-        <Drawer anchor="right" open={ isDrawerOn } onClose={ handleDrawerOff } PaperProps={{ sx: { bgcolor: (getThemeColor()), boxShadow: 0 } }}>
-          <Tabs value={ value } variant="scrollable" orientation="vertical" TabIndicatorProps={{ sx: { bgcolor: "#4DA6FF", height: "100%", width: "4%", borderRadius: "20px 0px 0px 20px" } }}>
+        <Drawer anchor="right" open={ isDrawerOn } onClose={ handleDrawerOff } PaperProps={{ sx: { bgcolor: (isDark ? "#121212" : "#9CF"), boxShadow: 0 } }}>
+          <Tabs value={ value } variant="scrollable" orientation="vertical" TabIndicatorProps={{ sx: { bgcolor: (isDark ? "#121212" : "#4DA6FF"), height: "100%", width: "4%", borderRadius: "20px 0px 0px 20px" } }}>
 
             <StyledTab key="Home" label="Home" component={ RouterLink } to="/" />
 
@@ -117,10 +117,6 @@ const Header = (props) => {
 
   const handleTheme = () => {
     setIsDark(!isDark);
-  };
-
-  const getThemeColor = () => {
-    return isDark ? "#121212" : "#9CF";
   };
 
   useEffect(() => {
@@ -149,7 +145,7 @@ const Header = (props) => {
     <div>
       <ThemeProvider theme={ isDark ? createTheme(dark) : createTheme(light) }>
         <CssBaseline /> {/* avoid app bar to have extra margin in static position */}
-        <AppBar position="static" sx={{ bgcolor: (getThemeColor()), boxShadow: 0, textOverflow: "ellipsis", overflow: "hidden" }} ref={ appBarRef }>
+        <AppBar position="static" sx={{ bgcolor: (isDark ? "#121212" : "#9CF"), boxShadow: 0, textOverflow: "ellipsis", overflow: "hidden" }} ref={ appBarRef }>
           <Toolbar id="back-to-top-anchor">
             <Grid container spacing={ 0 } direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
               <Grid item zeroMinWidth>
