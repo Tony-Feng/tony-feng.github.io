@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy } from '@loadable/component';
 import Loading from './pages/loading';
 
+import Page from './components/page';
+
 const Home = lazy(() => import('./pages/home'));
 const Error = lazy(() => import('./pages/error'));
 
@@ -12,6 +14,9 @@ const App = () => {
       <Suspense fallback={ <Loading /> }>
         <Routes>
           <Route path="/" exact element={ <Home /> } />
+
+          <Route path="/projects" exact element={ <Page /> } />
+
           <Route path="*" element={ <Error /> } />
         </Routes>
       </Suspense>

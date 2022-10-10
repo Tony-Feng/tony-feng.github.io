@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useReducer } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Tabs, IconButton, Grid, Drawer, CssBaseline, Tooltip, Switch } from '@mui/material';
 import { Menu, LightMode, DarkMode } from '@mui/icons-material';
@@ -6,12 +6,27 @@ import { useSelector, useDispatch } from 'react-redux';
 import { StyledTab, TitleBox } from '../../utils/styled-components';
 import { isDarkInv } from '../../slices/is-dark-slice';
 
+// const initHeaderState = {
+//   isMobile: false,
+//   isDrawerOn: false,
+//   location: false,
+//   error: '',
+//   isLoggedIn: false,
+// };
+//
+// const headerRdc = (state, action) => {
+//   d
+// };
+
 const Header = (props) => {
 
   const [isMobile, setIsMobile] = useState(false);
   const [isDrawerOn, setIsDrawerOn] = useState(false);
   const [location, setLocation] = useState(window.location.pathname);
-  const [value, setValue] = useState(false);
+  const [value, setValue] = useState(null);
+
+  // const [headerState, headerDispatch] = useReducer(headerRdc, initHeaderState);
+
   const patterns = [ // global and case-insensitive
     /^(\/|)$/gi, // home page: empty or /
     /^(\/projects)(\/|)$|^(\/project\/)(\d+)(\/|)$/gi // project page: /projects or /projects/ or /project/12 or /project/12/
@@ -22,7 +37,7 @@ const Header = (props) => {
   const appBarRef = useRef();
 
   const handleChange = () => {
-    const locationAfterChange = props.location.pathname;
+    const locationAfterChange = window.location.pathname;
     convertToValue(locationAfterChange);
   };
 
@@ -51,9 +66,10 @@ const Header = (props) => {
 
   const desktopView = () => {
     return (
-      <Tabs value={ value } onChange={ handleChange } variant="fullWidth" sx={{ minHeight: "inherit" }} TabIndicatorProps={{ sx: { bgcolor: (isDark ? "#121212" : "#4DA6FF"), height: "10%", width: "100%", borderRadius: "20px 20px 0px 0px" } }}>
+      <Tabs value={ value } onChange={ handleChange } variant="fullWidth" sx={{ minHeight: "inherit" }} TabIndicatorProps={{ sx: { bgcolor: (isDark ? "#9CF" : "#4DA6FF"), height: "10%", width: "100%", borderRadius: "20px 20px 0px 0px" } }}>
 
         <StyledTab key="Home" label="Home" component={ RouterLink } to="/" sx={{ mr: 2 }} /> {/* add some space to the right of this tab */}
+        <StyledTab key="Projects" label="Projects" component={ RouterLink } to="/projects" />
 
       </Tabs>
     );
@@ -68,9 +84,10 @@ const Header = (props) => {
           </IconButton>
         </Tooltip>
         <Drawer anchor="right" open={ isDrawerOn } onClose={ handleDrawerOff } PaperProps={{ sx: { bgcolor: (isDark ? "#121212" : "#9CF"), boxShadow: 0 } }}>
-          <Tabs value={ value } variant="scrollable" orientation="vertical" TabIndicatorProps={{ sx: { bgcolor: (isDark ? "#121212" : "#4DA6FF"), height: "100%", width: "4%", borderRadius: "20px 0px 0px 20px" } }}>
+          <Tabs value={ value } variant="scrollable" orientation="vertical" TabIndicatorProps={{ sx: { bgcolor: (isDark ? "#9CF" : "#4DA6FF"), height: "100%", width: "4%", borderRadius: "20px 0px 0px 20px" } }}>
 
             <StyledTab key="Home" label="Home" component={ RouterLink } to="/" />
+            <StyledTab key="Projects" label="Projects" component={ RouterLink } to="/projects" />
 
           </Tabs>
         </Drawer>
@@ -84,8 +101,14 @@ const Header = (props) => {
 
   useEffect(() => {
 
-      setLocation(location.pathname);
-      convertToValue(location.pathname);
+      console.log(window.location.pathname);
+      console.log(location.pathname);
+      console.log(value);
+
+      setLocation(window.location.pathname);
+      convertToValue(window.location.pathname);
+
+      console.log(value);
 
       setResponsiveView();
       window.addEventListener("resize", setResponsiveView);
