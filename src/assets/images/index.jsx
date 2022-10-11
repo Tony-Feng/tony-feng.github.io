@@ -1,6 +1,6 @@
 import UserAvatar from './flask.jpg';
-import ProjImgOne from './1.png';
-import ProjImgTwo from './2.png';
+import ProjImgOne from './react.png';
+import ProjImgTwo from './qhacks.png';
 
 export default {
   userAvatar: UserAvatar,
