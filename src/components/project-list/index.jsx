@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import LoadingSpinner from '../loading-spinner';
-import { StyledCardHeader } from '../../utils/styled-components';
+import { StyledCardHeader, StyledCardContent } from '../../utils/styled-components';
 
 import ProjectInfo from '../../assets/projects.json'; // todo: remove this
 import ImgOne from '../../assets/images/1.png'; // todo: remove this
@@ -32,33 +32,34 @@ const ProjectList = (props) => {
                     <>
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
                         {/*<CardMedia component="img" image={ `${process.env.PUBLIC_URL}/${item["cover"]}` } alt={ `img_${item["id"]}_${item["title"]}` } /> /!* todo: remove `process.env.PUBLIC_URL` *!/*/}
-                        <CardMedia component="img" image={ ImgOne } alt={ `img_${item["id"]}_${item["title"]}` } sx={{ width: "90%" }} /> {/* todo: remove `process.env.PUBLIC_URL` */}
+                        <CardMedia component="img" image={ ImgOne } alt={ `img_${item["id"]}_${item["title"]}` } /> {/* todo: remove `process.env.PUBLIC_URL` */}
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
                         {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center", noWrap: true }} sx={{ py: "0px" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<CardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center", noWrap: true }} sx={{ py: "0px", width: "90%" }} /> /!* todo: display creation date of project *!/*/}
-                        <StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center", noWrap: true }} sx={{ py: "0px", width: "90%" }} /> {/* todo: display creation date of project */}
+                        <StyledCardHeader title={ item["title"] } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center", noWrap: true }} sx={{ py: "5px" }} /> {/* todo: display creation date of project */}
 
-                        <CardContent sx={{ py: "0px", width: "90%" }}>
+                        {/*<CardContent sx={{ py: "0px" }}>*/}
+                        {/*  <ResponsiveEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="words" />*/}
+                        {/*</CardContent>*/}
+                        <StyledCardContent>
                           <ResponsiveEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="words" />
-                        </CardContent>
+                        </StyledCardContent>
                       </Grid>
                     </>
                   ) : (
                     <>
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center", noWrap: true }} sx={{ py: "0px" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<CardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center", noWrap: true }} sx={{ py: "0px", width: "90%" }} /> /!* todo: display creation date of project *!/*/}
-                        <StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center", noWrap: true }} sx={{ py: "0px", width: "90%" }} /> {/* todo: display creation date of project */}
+                        <StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center", noWrap: true }} sx={{ py: "0px" }} /> {/* todo: display creation date of project */}
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        <CardContent sx={{ py: "0px", width: "90%" }}>
+                        {/*<CardContent sx={{ py: "0px" }}>*/}
+                        {/*  <ResponsiveEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="words" />*/}
+                        {/*</CardContent>*/}
+                        <StyledCardContent>
                           <ResponsiveEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="words" />
-                        </CardContent>
+                        </StyledCardContent>
                       </Grid>
                     </>
                   )

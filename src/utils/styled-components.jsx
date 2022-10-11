@@ -1,4 +1,4 @@
-import { Tab, Box, Typography, CardHeader } from '@mui/material';
+import { Tab, Box, Typography, CardHeader, CardContent } from '@mui/material';
 import { styled } from '@mui/system';
 
 export const StyledTab = styled(Tab) (
@@ -36,10 +36,19 @@ export const TooltipTag = styled(Typography) (
 export const StyledCardHeader = styled(CardHeader) (
   {
     "& .MuiCardHeader-content": {
-      flex: "1 1 auto",
       width: "100%",
       overflow: "hidden",
       textOverflow: "ellipsis"
+    }
+  }
+);
+
+export const StyledCardContent = styled(CardContent) (
+  {
+    paddingTop: "0px",
+    paddingBottom: "0px",
+    "&:last-child": {
+      paddingBottom: "0px"
     }
   }
 );
