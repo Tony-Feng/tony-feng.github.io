@@ -40,7 +40,7 @@ const Footer = (props) => {
       <AppBar position="static" sx={{ bgcolor: (isDark ? "#121212" : "#9CF"), boxShadow: 0, py: 2 }} ref={ appBarRef }>
         <Grid container spacing={ 0.1 } direction="column" justifyContent="space-evenly" alignItems="center" wrap="nowrap">
           <Grid item zeroMinWidth xs={ 12 }>
-            <Typography noWrap variant="body1" component="div" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px`, textOverflow: "ellipsis", overflow: "hidden" }}>{ "\u00A9" } TF 2021 - { currentYear } { "\u2022" } Developed using React and Redux</Typography> {/* todo: adjust the copyright content */}
+            <Typography noWrap variant="body1" component="div" align="center" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px`, textOverflow: "ellipsis", overflow: "hidden" }}>{ "\u00A9" } TF 2021 - { currentYear } { "\u2022" } Developed using React and Redux</Typography> {/* todo: adjust the copyright content */}
           </Grid>
         </Grid>
       </AppBar>

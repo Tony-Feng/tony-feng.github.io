@@ -40,8 +40,6 @@ const ProjectList = (props) => {
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        {/*<StyledCardHeader title={ item["title"] } titleTypographyProps={{ gutterBottom: false, variant: "h5", component: "div", align: "center" }} sx={{ py: "5px" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="2" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "5px" }} /> /!* todo: display creation date of project *!/*/}
                         <StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="2" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "5px" }} /> {/* todo: display creation date of project */}
 
                         <StyledCardContent>
@@ -52,8 +50,6 @@ const ProjectList = (props) => {
                   ) : (
                     <>
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center", noWrap: true }} sx={{ py: "0px" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="2" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "0px" }} /> /!* todo: display creation date of project *!/*/}
                         <StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="2" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "0px" }} /> {/* todo: display creation date of project */}
                       </Grid>
 
