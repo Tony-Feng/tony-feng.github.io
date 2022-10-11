@@ -5,7 +5,8 @@
   "author": "Tony Feng",
   "keywords": [
     "react",
-    "mui"
+    "mui",
+    "redux"
   ],
   "private": true,
   "dependencies": {

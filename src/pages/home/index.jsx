@@ -5,17 +5,12 @@ import { Email, LinkedIn, GitHub, KeyboardArrowRight } from '@mui/icons-material
 import Page from '../../components/page';
 import Loading from '../../pages/loading';
 import { TooltipTag } from '../../utils/styled-components';
+import UserAvatar from '../../assets/images/flask.jpg';
+import UserInfo from '../../assets/info.json';
 
 const Home = () => { // todo: maybe use timeline to display education or experience
 
-  // const { name, email, linkedin, github, bio, tags } = props.info;
-
-  const name = "Name";
-  const email = "first_name.last_name@email.address";
-  const linkedin = "https://www.linkedin.com";
-  const github = "https://github.com";
-  const bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie diam eu lacus convallis lacinia. Nulla facilisi. Praesent vestibulum vitae arcu ac blandit. Sed vitae ligula luctus, euismod lacus non, dignissim ipsum. Mauris maximus hendrerit malesuada. Suspendisse egestas leo justo. Cras non ultrices ipsum. Cras vel elementum tellus, sit amet aliquet magna. Aenean sollicitudin varius dolor in lacinia. Morbi quis cursus ligula, a dapibus lacus. Aenean ultrices odio id nisi elementum, at blandit libero vehicula. Ut fermentum ornare nunc ut viverra. Nam vitae ultricies enim. Donec vitae sem arcu. Vestibulum placerat efficitur consectetur.";
-  const tags = ["React", "create-react-app", "MUI", "Axios", "Python", "Java", "Spark", "Kafka", "Git"];
+  const { name, email, linkedin, github, bio, tags } = UserInfo;
 
   return (
     <Page>
@@ -23,7 +18,7 @@ const Home = () => { // todo: maybe use timeline to display education or experie
       <Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center">
 
         <Grid item xs={ 12 } sx={{ mt: 5 }}>
-          <Avatar alt={ name } src={`${process.env.PUBLIC_URL}/images/monika.jpg`} sx={{ width: 200, height: 200, bgcolor: "#9CF", fontSize: 64 }}>{ name }</Avatar>
+          <Avatar alt={ name } src={ UserAvatar } sx={{ width: 200, height: 200, bgcolor: "#9CF", fontSize: 64 }}>{ name }</Avatar>
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mt: 3 }}>
