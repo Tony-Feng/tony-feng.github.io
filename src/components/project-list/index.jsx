@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Grid, Card, CardActionArea, CardMedia, CardHeader, CardContent, Tooltip } from '@mui/material';
 import PropTypes from 'prop-types';
-import ClampLines from 'react-clamp-lines';
+import LinesEllipsis from 'react-lines-ellipsis';
 import LoadingSpinner from '../loading-spinner';
 
 import ProjectInfo from '../../assets/projects.json'; // todo: remove this
@@ -32,22 +32,22 @@ const ProjectList = (props) => {
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        <CardHeader title={ <ClampLines id={ item["id"] } text={ item["title"] } lines={ 1 } buttons={ false } /> } titleTypographyProps={{ gutterBottom: true, variant: "h4", component: "div", align: "center" }} /> {/* todo: display creation date of project */}
+                        <CardHeader title={ <LinesEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: true, variant: "h4", component: "div", align: "center" }} /> {/* todo: display creation date of project */}
 
                         <CardContent>
-                          <ClampLines id={ item["id"] } text={ item["brief"] } lines={ 5 } buttons={ false } />
+                          <LinesEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="letters" />
                         </CardContent>
                       </Grid>
                     </>
                   ) : (
                     <>
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        <CardHeader title={ <ClampLines id={ item["id"] } text={ item["title"] } lines={ 1 } buttons={ false } /> } titleTypographyProps={{ gutterBottom: true, variant: "h4", component: "div", align: "center" }} /> {/* todo: display creation date of project */}
+                        <CardHeader title={ <LinesEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: true, variant: "h4", component: "div", align: "center" }} /> {/* todo: display creation date of project */}
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
                         <CardContent>
-                          <ClampLines id={ item["id"] } text={ item["brief"] } lines={ 5 } buttons={ false } />
+                          <LinesEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="letters" />
                         </CardContent>
                       </Grid>
                     </>

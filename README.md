@@ -9,7 +9,7 @@ npm i -g create-react-app --use-npm
 create-react-app . --use-npm
 npm i react-router-dom prop-types @loadable/component \
   @mui/material @mui/icons-material @emotion/react @emotion/styled @mui/system \
-  react-countdown react-clamp-lines
+  react-countdown react-lines-ellipsis
 npm i @reduxjs/toolkit react-redux redux-thunk redux-persist
 ```
 
