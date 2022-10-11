@@ -1,0 +1,8 @@
+{
+  "name": "Name",
+  "tags": ["React", "create-react-app", "MUI", "Axios", "Python", "Java", "Spark", "Kafka", "Git"],
+  "email": "first_name.last_name@email.address",
+  "linkedin": "https://www.linkedin.com",
+  "github": "https://github.com",
+  "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie diam eu lacus convallis lacinia. Nulla facilisi. Praesent vestibulum vitae arcu ac blandit. Sed vitae ligula luctus, euismod lacus non, dignissim ipsum. Mauris maximus hendrerit malesuada. Suspendisse egestas leo justo. Cras non ultrices ipsum. Cras vel elementum tellus, sit amet aliquet magna. Aenean sollicitudin varius dolor in lacinia. Morbi quis cursus ligula, a dapibus lacus. Aenean ultrices odio id nisi elementum, at blandit libero vehicula. Ut fermentum ornare nunc ut viverra. Nam vitae ultricies enim. Donec vitae sem arcu. Vestibulum placerat efficitur consectetur."
+}

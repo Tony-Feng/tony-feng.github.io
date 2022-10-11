@@ -10,10 +10,6 @@ const Footer = (props) => {
   const appBarRef = useRef();
   const { handleFooterHeight } = props;
 
-  // const getAppBarHeight = () => {
-  //   props.handleFooterHeight(appBarRef.current.clientHeight);
-  // };
-
   const getAppBarHeight = useCallback(() => {
       handleFooterHeight(appBarRef.current.clientHeight);
     }, [handleFooterHeight, appBarRef]
