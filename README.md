@@ -1,6 +1,7 @@
 # My Portfolio
 
 A portfolio page developed using React and Redux. It's based on one of my previous projects.
+The link is here: [tony-feng.github.io](http://tony-feng.github.io/).
 
 The portfolio page is a responsive React app, which is designed to display self-introduction and projects.
 It has some great features:
