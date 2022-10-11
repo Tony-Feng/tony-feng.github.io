@@ -1,5 +1,5 @@
 import UserAvatar from './flask.jpg';
-import ProjImgOne from './react.png';
+import ProjImgOne from './react-redux.png';
 import ProjImgTwo from './qhacks.png';
 
 const images = {

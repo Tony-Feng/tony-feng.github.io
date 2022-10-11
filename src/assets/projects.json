@@ -2,7 +2,7 @@
   "1": {
     "title": "My Portfolio",
     "brief": "A portfolio page developed using React and Redux. It's based on one of my previous projects.",
-    "cover": "images/react.png",
+    "cover": "images/react-redux.png",
     "link": "https://github.com/Tony-Feng/tony-feng.github.io",
     "id": 1
   },
