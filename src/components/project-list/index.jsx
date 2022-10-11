@@ -6,6 +6,7 @@ import ClampLines from 'react-clamp-lines';
 import LoadingSpinner from '../loading-spinner';
 
 import ProjectInfo from '../../assets/projects.json'; // todo: remove this
+import ImgOne from '../../assets/images/1.png'; // todo: remove this
 
 const ProjectList = (props) => {
 
@@ -26,7 +27,8 @@ const ProjectList = (props) => {
                   item["cover"] ? ( // the cover here can be ""; this field can be ignored as well, i.e., the field can be excluded from json
                     <>
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        <CardMedia component="img" image={ `${process.env.PUBLIC_URL}/${item["cover"]}` } alt={ `img_${item["id"]}_${item["title"]}` } /> {/* todo: remove `process.env.PUBLIC_URL` */}
+                        {/*<CardMedia component="img" image={ `${process.env.PUBLIC_URL}/${item["cover"]}` } alt={ `img_${item["id"]}_${item["title"]}` } /> /!* todo: remove `process.env.PUBLIC_URL` *!/*/}
+                        <CardMedia component="img" image={ ImgOne } alt={ `img_${item["id"]}_${item["title"]}` } /> {/* todo: remove `process.env.PUBLIC_URL` */}
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
@@ -72,25 +74,56 @@ const ProjectList = (props) => {
   // };
 
   const { numToLoad } = props;
-  const { isRetrieved, projects } = ProjectInfo;
+  const { projects } = ProjectInfo;
+  const isRetrieved = true;
+  const key = "9";
+  const value = {
+    "title": "9",
+    "brief": "Pellentesque pharetra eros pulvinar, aliquam ipsum a, rhoncus velit. Sed dictum lectus varius pharetra convallis. Quisque tempor sagittis lacus, ut gravida odio scelerisque in. Aenean imperdiet nisi at nunc convallis, ut tincidunt nisl fermentum. Nam nisi nulla, gravida ut scelerisque non, interdum a magna. Sed non dui ut nibh semper porta a quis nunc. Duis malesuada fermentum tortor nec pretium. Praesent quis risus est. Etiam ut euismod lectus. Phasellus pellentesque dignissim libero vel gravida. Cras vitae pharetra leo. In vestibulum, nulla quis mattis blandit, sem lectus hendrerit justo, et molestie sem magna eu leo.",
+    "tags": [
+      "t1",
+      "t2",
+      "t3",
+      "t4",
+      "t5",
+      "t6",
+      "t7"
+    ],
+    "cover": "images/9.png",
+    "id": 9
+  }
+
+  console.log(value)
 
   return (
     <div>
       <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center">
           {
-            (!! isRetrieved) ? (
+            (! isRetrieved) ? (
               <LoadingSpinner />
             ) : (
               <Grid item xs={ 10 } container spacing={ 4 } direction="row" justifyContent="center" alignItems="center">
-                {
-                  projects && Object.entries(projects).map(([key, value]) =>
-                    numToLoad >= toInt(key, 10) && (
-                      <Grid item xs={ 12 } sm={ 12 } md={ 6 } key={ key }>
-                        { getCard(value) }
-                      </Grid>
-                    )
-                  )
-                }
+                {/*{*/}
+                {/*  projects && Object.entries(projects).map(([key, value]) =>*/}
+                {/*    numToLoad >= toInt(key, 10) && (*/}
+                {/*      <Grid item xs={ 12 } sm={ 12 } md={ 6 } key={ key }>*/}
+                {/*        { getCard(value) }*/}
+                {/*      </Grid>*/}
+                {/*    )*/}
+                {/*  )*/}
+                {/*}*/}
+                <Grid item xs={ 12 } sm={ 12 } md={ 6 } key={ key }>
+                  { getCard(value) }
+                </Grid>
+                <Grid item xs={ 12 } sm={ 12 } md={ 6 } key={ key }>
+                  { getCard(value) }
+                </Grid>
+                <Grid item xs={ 12 } sm={ 12 } md={ 6 } key={ key }>
+                  { getCard(value) }
+                </Grid>
+                <Grid item xs={ 12 } sm={ 12 } md={ 6 } key={ key }>
+                  { getCard(value) }
+                </Grid>
               </Grid>
             )
           }
