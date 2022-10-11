@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { AppBar, Grid, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 
@@ -8,10 +8,16 @@ const Footer = (props) => {
   const isDark = useSelector(state => state.isDarkRdc.isDark);
 
   const appBarRef = useRef();
+  const { handleFooterHeight } = props;
 
-  const getAppBarHeight = () => {
-    props.handleFooterHeight(appBarRef.current.clientHeight);
-  };
+  // const getAppBarHeight = () => {
+  //   props.handleFooterHeight(appBarRef.current.clientHeight);
+  // };
+
+  const getAppBarHeight = useCallback(() => {
+      handleFooterHeight(appBarRef.current.clientHeight);
+    }, [handleFooterHeight, appBarRef]
+  );
 
   useEffect(() => {
       getAppBarHeight();
@@ -19,7 +25,7 @@ const Footer = (props) => {
       return () => {
         window.removeEventListener("resize", getAppBarHeight);
       };
-    }, []
+    }, [getAppBarHeight]
   );
 
   return (
