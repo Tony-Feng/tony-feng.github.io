@@ -73,7 +73,7 @@ const Home = () => { // todo: maybe use timeline to display education or experie
         <Grid item xs={ 12 } sx={{ mx: 2, my: 3 }}>
           <Paper component="ul" elevation={ 8 } sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", listStyle: "none", p: 2, m: 0, width: "100%", minWidth: 300, maxWidth: 500 }}>
             <Stack spacing={ 1 } direction="column" justifyContent="center" alignItems="center">
-              <Typography variant="h4" component="div" gutterBottom align="center">Interests/Skills (Tags)</Typography>
+              <Typography variant="h4" component="div" gutterBottom align="center">Skills</Typography>
               <Box component="div" sx={{ textAlign: "center" }}>
                 {
                   tags.map((tag, idx) => {
