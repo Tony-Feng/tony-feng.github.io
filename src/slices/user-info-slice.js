@@ -7,7 +7,7 @@ export const userInfoSlice = createSlice(
     initialState: {
       userInfo: UserInfo
     },
-    reducers: {} // read only, use `persistor.purge()` in `store.js` to clean up everything
+    reducers: {} // read only, use `persistor.purge()` in `store.js` or `localStorage.clear()` in browser to clean up everything
   }
 );
 
