@@ -30,7 +30,9 @@ const Header = (props) => {
   const [value, setValue] = useState(convertToValue(window.location.pathname, patterns));
 
   const isDark = useSelector(state => state.isDarkRdc.isDark);
+  const userInfo = useSelector(state => state.userInfoRdc.userInfo);
   const dispatch = useDispatch();
+  const { name } = userInfo;
 
   const appBarRef = useRef();
   const { handleHeaderHeight } = props;
@@ -107,10 +109,6 @@ const Header = (props) => {
       }
     }, [getAppBarHeight, handleChange]
   );
-
-  // const { name } = props.info;
-
-  const name = "123";
 
   return (
     <div>
