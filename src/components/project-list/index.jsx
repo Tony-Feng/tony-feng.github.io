@@ -10,11 +10,17 @@ import { StyledCardHeader, StyledCardContent } from '../../utils/styled-componen
 import ProjectInfo from '../../assets/projects.json'; // todo: remove this
 import ImgOne from '../../assets/images/1.png'; // todo: remove this
 
+const computeWidth = (percentage) => {
+  return Math.round(window.innerWidth * (1 - (percentage * 2)));
+};
+
 const ProjectList = (props) => {
 
   const { numToLoad } = props;
   const projects = ProjectInfo;
   const isRetrieved = true;
+
+  const [groupWidth, setGroupWidth] = useState(computeWidth(0.1));
 
   const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -69,9 +75,23 @@ const ProjectList = (props) => {
     );
   };
 
+  const handleWindowChange = () => {
+    setGroupWidth(computeWidth(0.1));
+  };
+
+  useEffect(() => {
+      handleWindowChange();
+      window.addEventListener("resize", handleWindowChange);
+
+      return () => {
+        window.removeEventListener("resize", handleWindowChange);
+      };
+    }, []
+  );
+
   return (
     <div>
-      <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: { xs: "50px", sm: "1200px", md: "1800px" } }}>
+      <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px` }}>
           {
             (! isRetrieved) ? (
               <LoadingSpinner />

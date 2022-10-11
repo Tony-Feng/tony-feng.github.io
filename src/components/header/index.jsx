@@ -106,7 +106,7 @@ const Header = (props) => {
       return () => {
         window.removeEventListener("resize", setResponsiveView);
         window.removeEventListener("resize", getAppBarHeight);
-      }
+      };
     }, [getAppBarHeight, handleChange]
   );
 
