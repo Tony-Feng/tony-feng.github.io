@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy } from '@loadable/component';
 import Loading from './pages/loading';
 
-import Page from './components/page';
+import Page from './components/page'; // todo: remove this
 
 const Home = lazy(() => import('./pages/home'));
 const Error = lazy(() => import('./pages/error'));

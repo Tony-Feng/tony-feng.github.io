@@ -2,11 +2,13 @@ import React, { Suspense } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Avatar, Grid, Box, Typography, Stack, IconButton, Chip, Paper, Button, Tooltip } from '@mui/material';
 import { Email, LinkedIn, GitHub, KeyboardArrowRight } from '@mui/icons-material';
+import { lazy } from '@loadable/component';
 import Page from '../../components/page';
 import Loading from '../../pages/loading';
 import { TooltipTag } from '../../utils/styled-components';
-import UserAvatar from '../../assets/images/flask.jpg';
-import UserInfo from '../../assets/info.json';
+
+const UserAvatar = lazy(() => import('../../assets/images/flask.jpg'));
+const UserInfo = lazy(() => import('../../assets/info.json'));
 
 const Home = () => { // todo: maybe use timeline to display education or experience
 
