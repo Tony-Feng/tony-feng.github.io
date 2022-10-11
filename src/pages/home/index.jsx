@@ -37,7 +37,6 @@ const Home = () => { // todo: maybe use timeline to display education or experie
     <Page>
 
       <Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px` }}>
-      {/*<Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px` }}>*/}
 
         <Grid item xs={ 12 } sx={{ mt: 5 }}>
           <Avatar alt={ name } src={ userAvatar } sx={{ width: 200, height: 200, bgcolor: "#9CF", fontSize: 64 }}>{ name }</Avatar>
@@ -95,8 +94,8 @@ const Home = () => { // todo: maybe use timeline to display education or experie
               <ProjectList numToLoad={ 2 } />
             </Suspense>
           <Stack spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ mx: 2 }}>
-            <Button variant="outlined" size="medium" endIcon={ <KeyboardArrowRight /> } component={ RouterLink } to={ "/projects" } sx={{ mt: 6 }}>
-              More Projects
+            <Button variant="outlined" size="medium" endIcon={ <KeyboardArrowRight /> } component={ RouterLink } to={ "/projects" } disabled sx={{ mt: 6 }}>
+              Stay Tuned for More Projects
             </Button>
           </Stack>
         </Grid>
