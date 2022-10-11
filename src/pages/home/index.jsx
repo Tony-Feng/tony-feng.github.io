@@ -39,7 +39,7 @@ const Home = () => { // todo: maybe use timeline to display education or experie
       <Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px` }}>
 
         <Grid item xs={ 12 } sx={{ mt: 5 }}>
-          <Avatar alt={ name } src={ userAvatar } sx={{ width: 200, height: 200, bgcolor: "#9CF", fontSize: 64 }}>{ name }</Avatar>
+          <Avatar alt={ name } src="" sx={{ bgcolor: "#9CF", objectFit: "contain" }}>{ name }</Avatar>
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mt: 3 }}>
@@ -67,11 +67,11 @@ const Home = () => { // todo: maybe use timeline to display education or experie
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mx: 2 }}>
-          <Typography variant="body1" component="div" gutterBottom align="justify" sx={{ width: "100%", minWidth: 300, maxWidth: 500, whiteSpace: "pre-line" }}>{ bio }</Typography>
+          <Typography variant="body1" component="div" gutterBottom align="justify" sx={{ width: "100%", whiteSpace: "pre-line", objectFit: "contain" }}>{ bio }</Typography>
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mx: 2, my: 3 }}>
-          <Paper component="ul" elevation={ 8 } sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", listStyle: "none", p: 2, m: 0, width: "100%", minWidth: 300, maxWidth: 500 }}>
+          <Paper component="ul" elevation={ 8 } sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", listStyle: "none", p: 2, m: 0, width: "100%", objectFit: "contain" }}>
             <Stack spacing={ 1 } direction="column" justifyContent="center" alignItems="center">
               <Typography variant="h4" component="div" gutterBottom align="center">Skills</Typography>
               <Box component="div" sx={{ textAlign: "center" }}>
@@ -94,7 +94,7 @@ const Home = () => { // todo: maybe use timeline to display education or experie
               <ProjectList numToLoad={ 3 } />
             </Suspense>
           <Stack spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ mx: 2 }}>
-            <Button variant="outlined" size="medium" endIcon={ <KeyboardArrowRight /> } component={ RouterLink } to={ "/projects" } disabled sx={{ mt: 6 }}>
+            <Button variant="outlined" size="medium" endIcon={ <KeyboardArrowRight /> } component={ RouterLink } to={ "/projects" } disabled sx={{ mt: 6, objectFit: "contain" }}>
               Stay Tuned for More Projects
             </Button>
           </Stack>

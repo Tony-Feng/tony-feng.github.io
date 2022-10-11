@@ -36,7 +36,7 @@ const ProjectList = (props) => {
                   item["cover"] ? ( // the cover here can be ""; this field can be ignored as well, i.e., the field can be excluded from json
                     <>
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        <CardMedia component="img" image={ images[item["id"]] } alt={ `img_${item["id"]}_${item["title"]}` } />
+                        <CardMedia component="img" image={ images[item["id"]] } alt={ `img_${item["id"]}_${item["title"]}` } title={ item["title"] } sx={{ objectFit: "contain" }} />
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
