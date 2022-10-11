@@ -8,7 +8,7 @@ import Loading from '../../pages/loading';
 import ProjectList from '../../components/project-list';
 import { TooltipTag } from '../../utils/styled-components';
 import { computeWidth } from '../../utils/shared-functions';
-import UserAvatar from '../../assets/images/flask.jpg';
+import images from '../../assets/images';
 
 const Home = () => { // todo: maybe use timeline to display education or experience
 
@@ -16,6 +16,8 @@ const Home = () => { // todo: maybe use timeline to display education or experie
 
   const userInfo = useSelector(state => state.userInfoRdc.userInfo);
   const { name, email, linkedin, github, bio, tags } = userInfo;
+
+  const { userAvatar } = images;
 
   const handleWindowChange = () => {
     setGroupWidth(computeWidth(0.05));
@@ -38,7 +40,7 @@ const Home = () => { // todo: maybe use timeline to display education or experie
       {/*<Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px` }}>*/}
 
         <Grid item xs={ 12 } sx={{ mt: 5 }}>
-          <Avatar alt={ name } src={ UserAvatar } sx={{ width: 200, height: 200, bgcolor: "#9CF", fontSize: 64 }}>{ name }</Avatar>
+          <Avatar alt={ name } src={ userAvatar } sx={{ width: 200, height: 200, bgcolor: "#9CF", fontSize: 64 }}>{ name }</Avatar>
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mt: 3 }}>
