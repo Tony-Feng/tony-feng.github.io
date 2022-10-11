@@ -90,7 +90,7 @@ const Home = () => { // todo: maybe use timeline to display education or experie
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mt: 6, mb: 8 }}> {/* todo: load more projects in real-time on home page while scrolling */}
-          <Typography variant="h4" component="div" gutterBottom align="center" sx={{ mb: 6 }}>Selected Projects</Typography> {/* todo: display project in time order */}
+          <Typography variant="h3" component="div" id="project" gutterBottom align="center" sx={{ mb: 6 }}>Selected Projects</Typography> {/* todo: display project in time order */}
             <Suspense fallback={ <Loading /> }>
               <ProjectList numToLoad={ 2 } />
             </Suspense>

@@ -54,7 +54,7 @@ const Header = (props) => {
       <Tabs value={ value } onChange={ handleChange } variant="fullWidth" sx={{ minHeight: "inherit" }} TabIndicatorProps={{ sx: { bgcolor: (isDark ? "#9CF" : "#4DA6FF"), height: "10%", width: "100%", borderRadius: "20px 20px 0px 0px" } }}>
 
         <StyledTab key="Home" label="Home" component={ RouterLink } to="/" sx={{ mr: 2 }} /> {/* add some space to the right of this tab */}
-        <StyledTab key="Projects" label="Projects" component={ RouterLink } to="/projects" />
+        <StyledTab key="Projects" label="Projects" component="a" href="#project" />
 
       </Tabs>
     );
