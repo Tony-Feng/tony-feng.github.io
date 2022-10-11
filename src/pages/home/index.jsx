@@ -1,25 +1,46 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Avatar, Grid, Box, Typography, Stack, IconButton, Chip, Paper, Button, Tooltip } from '@mui/material';
 import { Email, LinkedIn, GitHub, KeyboardArrowRight } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import Page from '../../components/page';
 import Loading from '../../pages/loading';
+import ProjectList from '../../components/project-list';
 import { TooltipTag } from '../../utils/styled-components';
-import UserAvatar from '../../assets/images/flask.jpg';
+import { computeWidth } from '../../utils/shared-functions';
+import images from '../../assets/images';
 
 const Home = () => { // todo: maybe use timeline to display education or experience
+
+  const [groupWidth, setGroupWidth] = useState(computeWidth(0.05));
 
   const userInfo = useSelector(state => state.userInfoRdc.userInfo);
   const { name, email, linkedin, github, bio, tags } = userInfo;
 
+  const { userAvatar } = images;
+
+  const handleWindowChange = () => {
+    setGroupWidth(computeWidth(0.05));
+  };
+
+  useEffect(() => {
+      handleWindowChange();
+      window.addEventListener("resize", handleWindowChange);
+
+      return () => {
+        window.removeEventListener("resize", handleWindowChange);
+      };
+    }, []
+  );
+
   return (
     <Page>
 
-      <Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center">
+      <Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px` }}>
+      {/*<Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px` }}>*/}
 
         <Grid item xs={ 12 } sx={{ mt: 5 }}>
-          <Avatar alt={ name } src={ UserAvatar } sx={{ width: 200, height: 200, bgcolor: "#9CF", fontSize: 64 }}>{ name }</Avatar>
+          <Avatar alt={ name } src={ userAvatar } sx={{ width: 200, height: 200, bgcolor: "#9CF", fontSize: 64 }}>{ name }</Avatar>
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mt: 3 }}>
@@ -71,7 +92,7 @@ const Home = () => { // todo: maybe use timeline to display education or experie
         <Grid item xs={ 12 } sx={{ mt: 6, mb: 8 }}> {/* todo: load more projects in real-time on home page while scrolling */}
           <Typography variant="h4" component="div" gutterBottom align="center" sx={{ mb: 6 }}>Selected Projects</Typography> {/* todo: display project in time order */}
             <Suspense fallback={ <Loading /> }>
-              {/*<ProjectList numToLoad={ 4 } />*/}
+              <ProjectList numToLoad={ 2 } />
             </Suspense>
           <Stack spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ mx: 2 }}>
             <Button variant="outlined" size="medium" endIcon={ <KeyboardArrowRight /> } component={ RouterLink } to={ "/projects" } sx={{ mt: 6 }}>

@@ -7,8 +7,9 @@ A codebase for my personal website app, it's developed based on my previous proj
 ```
 npm i -g create-react-app --use-npm
 create-react-app . --use-npm
-npm i react-router-dom prop-types @mui/material @mui/icons-material \
-  @emotion/react @emotion/styled @mui/system @loadable/component react-countdown
+npm i react-router-dom prop-types @loadable/component \
+  @mui/material @mui/icons-material @emotion/react @emotion/styled @mui/system \
+  react-countdown react-lines-ellipsis
 npm i @reduxjs/toolkit react-redux redux-thunk redux-persist
 ```
 

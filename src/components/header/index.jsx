@@ -5,15 +5,7 @@ import { Menu, LightMode, DarkMode } from '@mui/icons-material';
 import { useSelector, useDispatch } from 'react-redux';
 import { StyledTab, TitleBox } from '../../utils/styled-components';
 import { isDarkInv } from '../../slices/is-dark-slice';
-
-const convertToValue = (location, patterns) => { // map path with patterns to determine correct index, index is for set value of selected tab
-  for (const [idx, p] of patterns.entries()) {
-    if (p.test(location)) {
-      return idx;
-    }
-  }
-  return 0;
-};
+import { convertToValue } from '../../utils/shared-functions';
 
 const Header = (props) => {
 
@@ -52,7 +44,7 @@ const Header = (props) => {
   };
 
   const setResponsiveView = () => {
-    return window.innerWidth < 750
+    return window.innerWidth < 800
       ? setIsMobile(true)
       : setIsMobile(false);
   };
@@ -106,7 +98,7 @@ const Header = (props) => {
       return () => {
         window.removeEventListener("resize", setResponsiveView);
         window.removeEventListener("resize", getAppBarHeight);
-      }
+      };
     }, [getAppBarHeight, handleChange]
   );
 
