@@ -14,13 +14,22 @@ const computeWidth = (percentage) => {
   return Math.round(window.innerWidth * (1 - (percentage * 2)));
 };
 
+// const computeWidth = (percentage) => {
+//   const currentWindowWidth = window.innerWidth;
+//   if (currentWindowWidth >= 350) {
+//     return Math.round(currentWindowWidth * (1 - (percentage * 2)));
+//   } else {
+//     return currentWindowWidth;
+//   }
+// };
+
 const ProjectList = (props) => {
 
   const { numToLoad } = props;
   const projects = ProjectInfo;
   const isRetrieved = true;
 
-  const [groupWidth, setGroupWidth] = useState(computeWidth(0.1));
+  const [groupWidth, setGroupWidth] = useState(computeWidth(0.05));
 
   const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -76,7 +85,7 @@ const ProjectList = (props) => {
   };
 
   const handleWindowChange = () => {
-    setGroupWidth(computeWidth(0.1));
+    setGroupWidth(computeWidth(0.05));
   };
 
   useEffect(() => {
@@ -91,24 +100,25 @@ const ProjectList = (props) => {
 
   return (
     <div>
-      <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px` }}>
-          {
-            (! isRetrieved) ? (
-              <LoadingSpinner />
-            ) : (
-              <Grid item xs={ 10 } container spacing={ 4 } direction="row" justifyContent="center" alignItems="center">
-                {
-                  projects && Object.entries(projects).map(([key, value]) =>
-                    numToLoad >= toInt(key, 10) && (
-                      <Grid item xs={ 12 } sm={ 12 } md={ 6 } key={ key }>
-                        { getCard(value) }
-                      </Grid>
-                    )
+      <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px` }}>
+      {/*<Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px` }}>*/}
+        {
+          (! isRetrieved) ? (
+            <LoadingSpinner />
+          ) : (
+            <Grid item xs={ 10 } container spacing={ 4 } direction="row" justifyContent="center" alignItems="center">
+              {
+                projects && Object.entries(projects).map(([key, value]) =>
+                  numToLoad >= toInt(key, 10) && (
+                    <Grid item xs={ 12 } sm={ 12 } md={ 6 } key={ key }>
+                      { getCard(value) }
+                    </Grid>
                   )
-                }
-              </Grid>
-            )
-          }
+                )
+              }
+            </Grid>
+          )
+        }
       </Grid>
     </div>
   );

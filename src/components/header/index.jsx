@@ -52,7 +52,7 @@ const Header = (props) => {
   };
 
   const setResponsiveView = () => {
-    return window.innerWidth < 750
+    return window.innerWidth < 800
       ? setIsMobile(true)
       : setIsMobile(false);
   };

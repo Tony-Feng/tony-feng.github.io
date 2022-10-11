@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Avatar, Grid, Box, Typography, Stack, IconButton, Chip, Paper, Button, Tooltip } from '@mui/material';
 import { Email, LinkedIn, GitHub, KeyboardArrowRight } from '@mui/icons-material';
@@ -9,15 +9,45 @@ import ProjectList from '../../components/project-list';
 import { TooltipTag } from '../../utils/styled-components';
 import UserAvatar from '../../assets/images/flask.jpg';
 
+const computeWidth = (percentage) => {
+  return Math.round(window.innerWidth * (1 - (percentage * 2)));
+};
+
+// const computeWidth = (percentage) => {
+//   const currentWindowWidth = window.innerWidth;
+//   if (currentWindowWidth >= 350) {
+//     return Math.round(currentWindowWidth * (1 - (percentage * 2)));
+//   } else {
+//     return currentWindowWidth;
+//   }
+// };
+
 const Home = () => { // todo: maybe use timeline to display education or experience
+
+  const [groupWidth, setGroupWidth] = useState(computeWidth(0.05));
 
   const userInfo = useSelector(state => state.userInfoRdc.userInfo);
   const { name, email, linkedin, github, bio, tags } = userInfo;
 
+  const handleWindowChange = () => {
+    setGroupWidth(computeWidth(0.05));
+  };
+
+  useEffect(() => {
+      handleWindowChange();
+      window.addEventListener("resize", handleWindowChange);
+
+      return () => {
+        window.removeEventListener("resize", handleWindowChange);
+      };
+    }, []
+  );
+
   return (
     <Page>
 
-      <Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center">
+      <Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px` }}>
+      {/*<Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px` }}>*/}
 
         <Grid item xs={ 12 } sx={{ mt: 5 }}>
           <Avatar alt={ name } src={ UserAvatar } sx={{ width: 200, height: 200, bgcolor: "#9CF", fontSize: 64 }}>{ name }</Avatar>
