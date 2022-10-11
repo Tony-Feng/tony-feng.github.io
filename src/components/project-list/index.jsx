@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Grid, Card, CardActionArea, CardMedia, Tooltip } from '@mui/material';
 import PropTypes from 'prop-types';
@@ -31,9 +31,9 @@ const ProjectList = (props) => {
       <Card key={ item["id"] }>
         <Tooltip title={ (! item["disabled"]) ? `Click to view more details about project "${item["title"]}"` : "Stay tuned" } arrow>
           <div>
-            <CardActionArea component={ RouterLink } to={ `/project/${item["id"]}` } disabled={ item["disabled"] }> {/* todo: change md file location from direct id to md file name and store to project.json */}
+            {/*<CardActionArea component={ RouterLink } to={ item["link"] ? item["link"] : `/project/${item["id"]}` } disabled={ item["disabled"] }> /!* todo: change md file location from direct id to md file name and store to project.json *!/*/}
+            <CardActionArea component={ item["link"] ? "a" : RouterLink } href={ item["link"] ? item["link"] : null } to={ item["link"] ? null : `/project/${item["id"]}` } disabled={ item["disabled"] }> {/* todo: change md file location from direct id to md file name and store to project.json */}
               <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center">
-
                 {
                   item["cover"] ? ( // the cover here can be ""; this field can be ignored as well, i.e., the field can be excluded from json
                     <>
@@ -63,7 +63,6 @@ const ProjectList = (props) => {
                     </>
                   )
                 }
-
               </Grid>
             </CardActionArea>
           </div>
@@ -89,7 +88,6 @@ const ProjectList = (props) => {
   return (
     <div>
       <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px` }}>
-      {/*<Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px` }}>*/}
         {
           (! isRetrieved) ? (
             <LoadingSpinner />
