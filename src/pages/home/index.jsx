@@ -67,7 +67,7 @@ const Home = () => { // todo: maybe use timeline to display education or experie
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mx: 2 }}>
-          <Typography variant="body1" component="div" gutterBottom align="justify" sx={{ width: "100%", minWidth: 300, maxWidth: 500 }}>{ bio }</Typography>
+          <Typography variant="body1" component="div" gutterBottom align="justify" sx={{ width: "100%", minWidth: 300, maxWidth: 500, whiteSpace: "pre-line" }}>{ bio }</Typography>
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mx: 2, my: 3 }}>
