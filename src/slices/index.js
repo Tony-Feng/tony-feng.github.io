@@ -20,15 +20,13 @@ const userInfoPersistConfig = {
 const rootReducer = combineReducers(
   {
     userInfoRdc: persistReducer(userInfoPersistConfig, userInfoReducer),
-    other: otherReducer
+    otherRdc: combineReducers(
+      {
+        isDarkRdc: isDarkReducer,
+        isFirstTimeRdc: isFirstTimeReducer
+      }
+    )
   }
 );
 
-
-// export default combineReducers(
-//   {
-//     isDarkRdc: isDarkReducer,
-//     isFirstTimeRdc: isFirstTimeReducer,
-//     userInfoRdc: userInfoReducer
-//   }
-// );
+export default persistReducer(rootPersistConfig, rootReducer);

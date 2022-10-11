@@ -1,12 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-
-import { persistReducer, persistStore } from 'redux-persist';
+import { persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
-import rootReducer from './slices';
-
-
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+import persistedReducer from './slices';
 
 export const store = configureStore(
   {
