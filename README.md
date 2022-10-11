@@ -2,6 +2,12 @@
 
 A portfolio page developed using React and Redux. It's based on one of my previous projects.
 
+The portfolio page is a responsive React app, which is designed to display self-introduction and projects.
+It has some great features:
+1. It supports persistent dark mode and can switch to light/dark mode automatically when browsing this site for the first time.
+2. It's easy to manage the content to display, allowing users to add/update/delete personal info and projects.
+3. It owns the flexibility to customize the theme of the portfolio page.
+
 ## Installation
 
 1. Make sure [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) are installed already.
