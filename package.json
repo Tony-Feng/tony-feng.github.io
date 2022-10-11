@@ -1,6 +1,7 @@
 {
   "name": "tony-feng.github.io",
   "version": "0.1.0",
+  "homepage": "https://tony-feng.github.io",
   "description": "A codebase for my personal website app, it's developed based on my previous project.",
   "author": "Tony Feng",
   "keywords": [
@@ -33,6 +34,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -55,5 +58,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
