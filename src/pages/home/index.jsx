@@ -7,20 +7,8 @@ import Page from '../../components/page';
 import Loading from '../../pages/loading';
 import ProjectList from '../../components/project-list';
 import { TooltipTag } from '../../utils/styled-components';
+import { computeWidth } from '../../utils/shared-functions';
 import UserAvatar from '../../assets/images/flask.jpg';
-
-const computeWidth = (percentage) => {
-  return Math.round(window.innerWidth * (1 - (percentage * 2)));
-};
-
-// const computeWidth = (percentage) => {
-//   const currentWindowWidth = window.innerWidth;
-//   if (currentWindowWidth >= 350) {
-//     return Math.round(currentWindowWidth * (1 - (percentage * 2)));
-//   } else {
-//     return currentWindowWidth;
-//   }
-// };
 
 const Home = () => { // todo: maybe use timeline to display education or experience
 

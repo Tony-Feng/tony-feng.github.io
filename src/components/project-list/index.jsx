@@ -6,22 +6,10 @@ import LinesEllipsis from 'react-lines-ellipsis';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import LoadingSpinner from '../loading-spinner';
 import { StyledCardHeader, StyledCardContent } from '../../utils/styled-components';
+import { computeWidth } from '../../utils/shared-functions';
 
 import ProjectInfo from '../../assets/projects.json'; // todo: remove this
 import ImgOne from '../../assets/images/1.png'; // todo: remove this
-
-const computeWidth = (percentage) => {
-  return Math.round(window.innerWidth * (1 - (percentage * 2)));
-};
-
-// const computeWidth = (percentage) => {
-//   const currentWindowWidth = window.innerWidth;
-//   if (currentWindowWidth >= 350) {
-//     return Math.round(currentWindowWidth * (1 - (percentage * 2)));
-//   } else {
-//     return currentWindowWidth;
-//   }
-// };
 
 const ProjectList = (props) => {
 
