@@ -3,12 +3,15 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Grid, Card, CardActionArea, CardMedia, CardHeader, CardContent, Tooltip } from '@mui/material';
 import PropTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import LoadingSpinner from '../loading-spinner';
 
 import ProjectInfo from '../../assets/projects.json'; // todo: remove this
 import ImgOne from '../../assets/images/1.png'; // todo: remove this
 
 const ProjectList = (props) => {
+
+  const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
   const toInt = (num) => {
     const parsed = parseInt(num, 10);
@@ -32,22 +35,22 @@ const ProjectList = (props) => {
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        <CardHeader title={ <LinesEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: true, variant: "h4", component: "div", align: "center" }} /> {/* todo: display creation date of project */}
+                        <CardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: true, variant: "h4", component: "div", align: "center" }} /> {/* todo: display creation date of project */}
 
                         <CardContent>
-                          <LinesEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="letters" />
+                          <ResponsiveEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="words" />
                         </CardContent>
                       </Grid>
                     </>
                   ) : (
                     <>
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        <CardHeader title={ <LinesEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: true, variant: "h4", component: "div", align: "center" }} /> {/* todo: display creation date of project */}
+                        <CardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="words" /> } titleTypographyProps={{ gutterBottom: true, variant: "h4", component: "div", align: "center" }} /> {/* todo: display creation date of project */}
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
                         <CardContent>
-                          <LinesEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="letters" />
+                          <ResponsiveEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="words" />
                         </CardContent>
                       </Grid>
                     </>
@@ -78,7 +81,7 @@ const ProjectList = (props) => {
   const isRetrieved = true;
   const key = "9";
   const value = {
-    "title": "9",
+    "title": "999999999999999999999999999999999",
     "brief": "Pellentesque pharetra eros pulvinar, aliquam ipsum a, rhoncus velit. Sed dictum lectus varius pharetra convallis. Quisque tempor sagittis lacus, ut gravida odio scelerisque in. Aenean imperdiet nisi at nunc convallis, ut tincidunt nisl fermentum. Nam nisi nulla, gravida ut scelerisque non, interdum a magna. Sed non dui ut nibh semper porta a quis nunc. Duis malesuada fermentum tortor nec pretium. Praesent quis risus est. Etiam ut euismod lectus. Phasellus pellentesque dignissim libero vel gravida. Cras vitae pharetra leo. In vestibulum, nulla quis mattis blandit, sem lectus hendrerit justo, et molestie sem magna eu leo.",
     "tags": [
       "t1",
@@ -92,8 +95,6 @@ const ProjectList = (props) => {
     "cover": "images/9.png",
     "id": 9
   }
-
-  console.log(value)
 
   return (
     <div>
