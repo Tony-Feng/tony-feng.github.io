@@ -31,8 +31,7 @@ const ProjectList = (props) => {
       <Card key={ item["id"] }>
         <Tooltip title={ (! item["disabled"]) ? `Click to view more details about project "${item["title"]}"` : "Stay tuned" } arrow>
           <div>
-            {/*<CardActionArea component={ RouterLink } to={ item["link"] ? item["link"] : `/project/${item["id"]}` } disabled={ item["disabled"] }> /!* todo: change md file location from direct id to md file name and store to project.json *!/*/}
-            <CardActionArea component={ item["link"] ? "a" : RouterLink } href={ item["link"] ? item["link"] : null } to={ item["link"] ? null : `/project/${item["id"]}` } disabled={ item["disabled"] }> {/* todo: change md file location from direct id to md file name and store to project.json */}
+            <CardActionArea component={ item["link"] ? "a" : RouterLink } href={ item["link"] ? item["link"] : null } to={ item["link"] ? null : `/project/${item["id"]}` } target="_blank" rel="noopener" disabled={ item["disabled"] }> {/* todo: change md file location from direct id to md file name and store to project.json */}
               <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center">
                 {
                   item["cover"] ? ( // the cover here can be ""; this field can be ignored as well, i.e., the field can be excluded from json
