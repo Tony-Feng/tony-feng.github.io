@@ -7,15 +7,14 @@ import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import LoadingSpinner from '../loading-spinner';
 import { StyledCardHeader, StyledCardContent } from '../../utils/styled-components';
 import { computeWidth } from '../../utils/shared-functions';
-
-import ProjectInfo from '../../assets/projects.json'; // todo: remove this
-import images from '../../assets/images'; // todo: remove this
+import ProjectInfo from '../../assets/projects.json'; // todo: share this using redux
+import images from '../../assets/images';
 
 const ProjectList = (props) => {
 
-  const { numToLoad } = props;
+  const { numToLoad } = props; // todo: change to a dynamic value
   const projects = ProjectInfo;
-  const isRetrieved = true;
+  const isRetrieved = true; // for future loading from remote
 
   const [groupWidth, setGroupWidth] = useState(computeWidth(0.05));
 
@@ -37,7 +36,7 @@ const ProjectList = (props) => {
                   item["cover"] ? ( // the cover here can be ""; this field can be ignored as well, i.e., the field can be excluded from json
                     <>
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        <CardMedia component="img" image={ images[item["id"]] } alt={ `img_${item["id"]}_${item["title"]}` } /> {/* todo: remove `process.env.PUBLIC_URL` */}
+                        <CardMedia component="img" image={ images[item["id"]] } alt={ `img_${item["id"]}_${item["title"]}` } />
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
