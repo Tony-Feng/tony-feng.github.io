@@ -1,40 +1,44 @@
 name: Release GitHub Pages
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
+    types:
+      - closed
     branches: [ main ]
 
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [ 16.x ]
+    if_merged:
+      if: github.event.pull_request.merged == true
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      runs-on: ubuntu-latest
 
-      - name: Install Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
+      strategy:
+        matrix:
+          node-version: [ 16.x ]
 
-      - name: Install npm dependencies
-        run: npm ci
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
 
-      - name: Build project
-        run: npm run build --if-present
+        - name: Install Node.js ${{ matrix.node-version }}
+          uses: actions/setup-node@v3
+          with:
+            node-version: ${{ matrix.node-version }}
 
-      - name: Upload artifacts for deployment
-        uses: actions/upload-artifact@v3
-        with:
-          name: prod-artifacts
-          path: ./prod_build
+        - name: Install npm dependencies
+          run: npm ci
+
+        - name: Build project
+          run: npm run build --if-present
+
+        - name: Upload artifacts for deployment
+          uses: actions/upload-artifact@v3
+          with:
+            name: prod-artifacts
+            path: ./prod_build
 
   deploy:
     name: Deploy
