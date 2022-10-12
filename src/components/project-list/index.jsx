@@ -85,7 +85,8 @@ const ProjectList = (props) => {
 
   return (
     <div>
-      <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px` }}>
+      {/*<Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px` }}>*/}
+      <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: "100vw" }}>
         {
           (! isRetrieved) ? (
             <LoadingSpinner />
