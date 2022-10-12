@@ -84,7 +84,8 @@ const Home = () => { // todo: maybe use timeline to display education or experie
                         // <Chip label={ <Typography sx={{ whiteSpace: "normal" }}>{ tag }</Typography> } key={idx} component="li" sx={{ m: 1, py: 3 }} />
                         // <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="1" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={idx} component="li" sx={{ m: 1, py: 3 }} />
                         // <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="2" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={ idx } component="li" sx={{ m: 1, px: 1, py: 3 }} />
-                        <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="2" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={ idx } component="li" sx={{ m: 1, py: groupWidth < 550 ? 3 : 0 }} />
+                        // <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="2" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={ idx } component="li" sx={{ m: 1, py: groupWidth < 550 ? 3 : 0 }} />
+                        <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="1" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={ idx } component="li" sx={{ m: 1 }} />
                       );
                     }
                   )
