@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Grid, Card, CardActionArea, CardMedia, Tooltip } from '@mui/material';
 import PropTypes from 'prop-types';
@@ -6,7 +6,6 @@ import LinesEllipsis from 'react-lines-ellipsis';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import LoadingSpinner from '../loading-spinner';
 import { StyledCardHeader, StyledCardContent } from '../../utils/styled-components';
-import { computeWidth } from '../../utils/shared-functions';
 import ProjectInfo from '../../assets/projects.json'; // todo: share this using redux
 import images from '../../assets/images';
 
@@ -15,8 +14,6 @@ const ProjectList = (props) => {
   const { numToLoad } = props; // todo: change to a dynamic value
   const projects = ProjectInfo;
   const isRetrieved = true; // for future loading from remote
-
-  const [groupWidth, setGroupWidth] = useState(computeWidth(0.05));
 
   const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -69,23 +66,8 @@ const ProjectList = (props) => {
     );
   };
 
-  const handleWindowChange = () => {
-    setGroupWidth(computeWidth(0.05));
-  };
-
-  useEffect(() => {
-      handleWindowChange();
-      window.addEventListener("resize", handleWindowChange);
-
-      return () => {
-        window.removeEventListener("resize", handleWindowChange);
-      };
-    }, []
-  );
-
   return (
     <div>
-      {/*<Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth}px`, maxWidth: `${groupWidth}px` }}>*/}
       <Grid container spacing={ 0 } direction="row" justifyContent="center" alignItems="center" sx={{ width: "100vw" }}>
         {
           (! isRetrieved) ? (
