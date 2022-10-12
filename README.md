@@ -1,5 +1,10 @@
 # My Portfolio
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/tony-feng/tony-feng.github.io)
+![GitHub](https://img.shields.io/github/license/tony-feng/tony-feng.github.io)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/tony-feng/tony-feng.github.io)
+![Lines of code](https://img.shields.io/tokei/lines/github/tony-feng/tony-feng.github.io)
+
 A portfolio page developed using React and Redux. It's based on one of my previous projects.
 The link is here: [tony-feng.github.io](http://tony-feng.github.io/).
 
