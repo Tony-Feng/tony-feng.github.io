@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Avatar, Grid, Box, Typography, Stack, IconButton, Chip, Paper, Button, Tooltip } from '@mui/material';
 import { Email, LinkedIn, GitHub, KeyboardArrowRight } from '@mui/icons-material';
@@ -16,25 +16,9 @@ const Home = () => { // todo: maybe use timeline to display education or experie
   const userInfo = useSelector(state => state.userInfoRdc.userInfo);
   const { name, email, linkedin, github, bio, tags } = userInfo;
 
-  const [groupWidth, setGroupWidth] = useState(window.innerWidth);
-
   const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
   const { userAvatar } = images;
-
-  const handleWindowChange = () => {
-    setGroupWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-      handleWindowChange();
-      window.addEventListener("resize", handleWindowChange);
-
-      return () => {
-        window.removeEventListener("resize", handleWindowChange);
-      };
-    }, []
-  );
 
   return (
     <Page>
@@ -81,10 +65,6 @@ const Home = () => { // todo: maybe use timeline to display education or experie
                 {
                   tags.map((tag, idx) => {
                       return (
-                        // <Chip label={ <Typography sx={{ whiteSpace: "normal" }}>{ tag }</Typography> } key={idx} component="li" sx={{ m: 1, py: 3 }} />
-                        // <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="1" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={idx} component="li" sx={{ m: 1, py: 3 }} />
-                        // <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="2" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={ idx } component="li" sx={{ m: 1, px: 1, py: 3 }} />
-                        // <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="2" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={ idx } component="li" sx={{ m: 1, py: groupWidth < 550 ? 3 : 0 }} />
                         <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="1" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={ idx } component="li" sx={{ m: 1 }} />
                       );
                     }
