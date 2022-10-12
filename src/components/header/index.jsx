@@ -72,7 +72,7 @@ const Header = (props) => {
           <Tabs value={ value } variant="scrollable" orientation="vertical" TabIndicatorProps={{ sx: { bgcolor: (isDark ? "#9CF" : "#4DA6FF"), height: "100%", width: "4%", borderRadius: "20px 0px 0px 20px" } }}>
 
             <StyledTab key="Home" label="Home" component={ RouterLink } to="/" />
-            <StyledTab key="Projects" label="Projects" component={ RouterLink } to="/projects" />
+            <StyledTab key="Projects" label="Projects" component="a" href="#project" />
 
           </Tabs>
         </Drawer>
