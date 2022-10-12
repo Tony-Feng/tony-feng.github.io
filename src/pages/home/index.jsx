@@ -61,7 +61,7 @@ const Home = () => { // todo: maybe use timeline to display education or experie
                 {
                   tags.map((tag, idx) => {
                       return (
-                        <Chip label={ <Typography style={{ whiteSpace: "normal" }}>{ tag }</Typography> } key={idx} component="li" sx={{ m: 1 }} />
+                        <Chip label={ <Typography sx={{ whiteSpace: "normal", lineHeight: "1em" }}>{ tag }</Typography> } key={ idx } component="li" sx={{ m: 1, py: "1.3em" }} /> // todo: fit chip height for text of more than 2 lines
                       );
                     }
                   )
