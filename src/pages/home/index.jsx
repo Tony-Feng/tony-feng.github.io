@@ -51,12 +51,10 @@ const Home = () => { // todo: maybe use timeline to display education or experie
       <Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth["page"]}px`, maxWidth: `${groupWidth["page"]}px` }}>
 
         <Grid item xs={ 12 } sx={{ mt: 5 }}>
-          {/*<Avatar alt={ name } src={ userAvatar } align="center" sx={{ bgcolor: "#9CF", width: `${groupWidth["avatar"]}px`, height: `${groupWidth["avatar"]}px`, fontSize: "4vw", objectFit: "contain" }}>{ name }</Avatar>*/}
           <Avatar alt={ name } src={ userAvatar } align="center" sx={{ bgcolor: "#9CF", width: "15vw", height: "15vw", fontSize: "4vw", objectFit: "contain" }}>{ name }</Avatar>
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mt: 3 }}>
-          {/*<Typography variant="h2" component="div" align="center" sx={{ width: "40vw" }}>{ name }</Typography>*/}
           <Typography variant="h2" component="div" align="center">{ name }</Typography>
         </Grid>
 
@@ -81,13 +79,10 @@ const Home = () => { // todo: maybe use timeline to display education or experie
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mx: 2 }}>
-          {/*<Typography variant="body1" component="div" gutterBottom align="justify" sx={{ width: `${groupWidth["text"]}px`, whiteSpace: "pre-line", objectFit: "contain" }}>{ bio }</Typography>*/}
-          {/*<Typography variant="body1" component="div" gutterBottom align="justify" sx={{ width: "32vw", whiteSpace: "pre-line", objectFit: "contain" }}>{ bio }</Typography>*/}
           <Typography variant="h6" component="div" gutterBottom align="justify" sx={{ width: "42vw", whiteSpace: "pre-line", objectFit: "contain" }}>{ bio }</Typography>
         </Grid>
 
         <Grid item xs={ 12 } sx={{ mx: 2, my: 3 }}>
-          {/*<Paper component="ul" elevation={ 8 } sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", listStyle: "none", p: 2, m: 0, width: `${groupWidth["text"]}px`, objectFit: "contain" }}>*/}
           <Paper component="ul" elevation={ 8 } sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", listStyle: "none", p: 2, m: 0, width: "42vw", objectFit: "contain" }}>
             <Stack spacing={ 1 } direction="column" justifyContent="center" alignItems="center">
               <Typography variant="h4" component="div" gutterBottom align="center">Skills</Typography>
@@ -95,7 +90,6 @@ const Home = () => { // todo: maybe use timeline to display education or experie
                 {
                   tags.map((tag, idx) => {
                       return (
-                        // <Chip label={tag} key={idx} component="li" sx={{ m: 1 }} />
                         <Chip label={ <Typography style={{ whiteSpace: "normal" }}>{ tag }</Typography> } key={idx} component="li" sx={{ m: 1 }} />
                       );
                     }
