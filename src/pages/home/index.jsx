@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Avatar, Grid, Box, Typography, Stack, IconButton, Chip, Paper, Button, Tooltip } from '@mui/material';
 import { Email, LinkedIn, GitHub, KeyboardArrowRight } from '@mui/icons-material';
@@ -16,9 +16,34 @@ const Home = () => { // todo: maybe use timeline to display education or experie
   const userInfo = useSelector(state => state.userInfoRdc.userInfo);
   const { name, email, linkedin, github, bio, tags } = userInfo;
 
+  // const [groupWidth, setGroupWidth] = useState(window.innerWidth);
+
   const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
   const { userAvatar } = images;
+
+  // const vw = (percent) => {
+  //   const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  //   return (percent * w) / 100;
+  // };
+
+  // const vw = (percent) => {
+  //   return (percent * groupWidth) / 100;
+  // };
+
+  // const handleWindowChange = () => {
+  //   setGroupWidth(window.innerWidth);
+  // };
+  //
+  // useEffect(() => {
+  //     handleWindowChange();
+  //     window.addEventListener("resize", handleWindowChange);
+  //
+  //     return () => {
+  //       window.removeEventListener("resize", handleWindowChange);
+  //     };
+  //   }, []
+  // );
 
   return (
     <Page>
@@ -65,7 +90,17 @@ const Home = () => { // todo: maybe use timeline to display education or experie
                 {
                   tags.map((tag, idx) => {
                       return (
-                        <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="1" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={ idx } component="li" sx={{ m: 1 }} />
+                        // <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="1" ellipsis="..." basedOn="words" style={{ whiteSpace: groupWidth < vw(42) ? "normal" : "pre" }} /> } key={ idx } component="li" sx={{ m: 1 }} />
+                        // <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="1" ellipsis="..." basedOn="words" style={{ whiteSpace: groupWidth < 380 ? "normal" : "pre" }} /> } key={ idx } component="li" sx={{ m: 1 }} />
+                        // <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="1" ellipsis="..." basedOn="words" style={{ whiteSpace: "normal" }} /> } key={ idx } component="li" sx={{ m: 1, objectFit: "contain" }} />
+                        // <Chip label={ <Typography sx={{ width: { xxs: "50%", xs: "100%", sm: "100%", md: "100%" }, overflow: "hidden", textOverflow: "ellipsis" }}>{ tag }</Typography> } key={ idx } component="li" sx={{ m: 1 }} />
+                        // <Chip label={ <Typography sx={{ width: "fit-content", overflow: "hidden", textOverflow: "ellipsis" }}>{ tag }</Typography> } key={ idx } component="li" sx={{ m: 1, width: "fit-content" }} />
+                        // <Chip label={ <Typography sx={{ overflow: "hidden", textOverflow: "ellipsis" }}>{ tag }</Typography> } key={ idx } component="li" sx={{ m: 1, display: "inline-flex" }} />
+                        // <Chip label={ <Typography sx={{ whiteSpace: "normal", overflow: "hidden", textOverflow: "ellipsis" }}>{ tag }</Typography> } key={ idx } component="li" sx={{ m: 1 }} />
+                        // <Chip label={ <Typography sx={{ whiteSpace: "normal" }}>{ <ResponsiveEllipsis text={ tag } maxLine="1" ellipsis="..." basedOn="words" /> }</Typography> } key={ idx } component="li" sx={{ m: 1 }} />
+                        // <Chip label={ <ResponsiveEllipsis text={ tag } maxLine="1" ellipsis="..." basedOn="words" /> } key={ idx } component="li" sx={{ m: 1 }} />
+                        // <Chip label={ <Typography sx={{ whiteSpace: "normal", lineHeight: "normal" }}>{ tag }</Typography> } key={ idx } component="li" sx={{ m: 1, py: 2 }} />
+                        <Chip label={ <Typography sx={{ whiteSpace: "normal", lineHeight: "1em" }}>{ tag }</Typography> } key={ idx } component="li" sx={{ m: 1, py: "1.3em" }} /> // todo: fit chip height for text of more than 2 lines
                       );
                     }
                   )

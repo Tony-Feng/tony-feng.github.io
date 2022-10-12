@@ -7,6 +7,6 @@ export const convertToValue = (location, patterns) => { // map path with pattern
   return 0;
 };
 
-export const computeWidth = (percentage) => {
-  return Math.round(window.innerWidth * (1 - (percentage * 2)));
+export const computeWidth = (percent) => {
+  return Math.round(window.innerWidth * (1 - (percent * 2)));
 };
