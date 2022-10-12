@@ -6,7 +6,6 @@ import LinesEllipsis from 'react-lines-ellipsis';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import LoadingSpinner from '../loading-spinner';
 import { StyledCardHeader, StyledCardContent } from '../../utils/styled-components';
-import { computeWidth } from '../../utils/shared-functions';
 import ProjectInfo from '../../assets/projects.json'; // todo: share this using redux
 import images from '../../assets/images';
 
@@ -16,7 +15,7 @@ const ProjectList = (props) => {
   const projects = ProjectInfo;
   const isRetrieved = true; // for future loading from remote
 
-  const [groupWidth, setGroupWidth] = useState(computeWidth(0.05));
+  const [groupWidth, setGroupWidth] = useState(window.innerWidth);
 
   const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -40,13 +39,7 @@ const ProjectList = (props) => {
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="2" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "5px" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ <Typography style={{ whiteSpace: "normal" }}>{ item["title"] }</Typography> } maxLine="2" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "5px" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<StyledCardHeader title={ item["title"] } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "5px" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="2" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "5px" }} style={{ whiteSpace: "normal" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<StyledCardHeader title={{ xs: <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="letters" />, sm: <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="2" ellipsis="..." basedOn="letters" />,  }} titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "5px" }} /> /!* todo: display creation date of project *!/*/}
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="1" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "5px" }} /> /!* todo: display creation date of project *!/*/}
-                        <StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine={ groupWidth < 200 ? "1" : "2" } ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "5px" }} /> {/* todo: display creation date of project */}
+                        <StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine={ groupWidth < 250 ? "1" : "2" } ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "5px" }} /> {/* todo: display creation date of project */}
 
                         <StyledCardContent>
                           <ResponsiveEllipsis id={ item["id"] } text={ item["brief"] } maxLine="5" ellipsis="..." basedOn="words" />
@@ -56,7 +49,9 @@ const ProjectList = (props) => {
                   ) : (
                     <>
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        <StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="2" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "0px" }} /> {/* todo: display creation date of project */}
+                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="2" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "0px" }} /> /!* todo: display creation date of project *!/*/}
+                        <StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine={ groupWidth < 250 ? "1" : "2" } ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "0px" }} /> {/* todo: display creation date of project */}
+
                       </Grid>
 
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
@@ -76,7 +71,7 @@ const ProjectList = (props) => {
   };
 
   const handleWindowChange = () => {
-    setGroupWidth(computeWidth(0.05));
+    setGroupWidth(window.innerWidth);
   };
 
   useEffect(() => {
