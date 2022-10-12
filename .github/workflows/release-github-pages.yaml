@@ -6,9 +6,6 @@ on:
       - closed
     branches: [ main ]
 
-permissions:
-  contents: write
-
 jobs:
   build-and-deploy:
     name: Build and deploy
@@ -36,7 +33,13 @@ jobs:
       - name: Build project
         run: npm run build --if-present
 
+      - name: Semantic release
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+        run: npx semantic-release
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
+          github_token: ${{ secrets.GH_TOKEN }}
           folder: build
