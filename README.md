@@ -30,4 +30,5 @@ npm i react-router-dom prop-types @loadable/component \
   react-countdown react-lines-ellipsis
 npm i @reduxjs/toolkit react-redux redux-thunk redux-persist
 npm i gh-pages --save-dev
+npm i @semantic-release/git @semantic-release/changelog --save-dev
 ```
