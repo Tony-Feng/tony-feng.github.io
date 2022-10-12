@@ -49,7 +49,6 @@ const ProjectList = (props) => {
                   ) : (
                     <>
                       <Grid item xs={ 12 } sm={ 12 } md={ 6 }>
-                        {/*<StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine="2" ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "0px" }} /> /!* todo: display creation date of project *!/*/}
                         <StyledCardHeader title={ <ResponsiveEllipsis id={ item["id"] } text={ item["title"] } maxLine={ groupWidth < 250 ? "1" : "2" } ellipsis="..." basedOn="letters" /> } titleTypographyProps={{ gutterBottom: false, variant: "h4", component: "div", align: "center" }} sx={{ py: "0px" }} /> {/* todo: display creation date of project */}
 
                       </Grid>
