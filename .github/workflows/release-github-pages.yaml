@@ -25,6 +25,7 @@ jobs:
       - name: Install Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
+          cache: npm
           node-version: ${{ matrix.node-version }}
 
       - name: Install npm dependencies
@@ -33,13 +34,8 @@ jobs:
       - name: Build project
         run: npm run build --if-present
 
-      - name: Semantic release
-        env:
-          github_token: ${{ secrets.GH_TOKEN }}
-        run: npx semantic-release
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           folder: build
