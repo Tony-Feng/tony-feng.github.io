@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Avatar, Grid, Box, Typography, Stack, IconButton, Chip, Paper, Button, Tooltip } from '@mui/material';
 import { Email, LinkedIn, GitHub, KeyboardArrowRight } from '@mui/icons-material';
@@ -7,48 +7,19 @@ import Page from '../../components/page';
 import Loading from '../../pages/loading';
 import ProjectList from '../../components/project-list';
 import { TooltipTag } from '../../utils/styled-components';
-import { computeWidth } from '../../utils/shared-functions';
 import images from '../../assets/images';
 
 const Home = () => { // todo: maybe use timeline to display education or experience
-
-  const [groupWidth, setGroupWidth] = useState(
-    {
-      page: computeWidth(0.05),
-      avatar: computeWidth(0.43),
-      text: computeWidth(0.37)
-    }
-  );
 
   const userInfo = useSelector(state => state.userInfoRdc.userInfo);
   const { name, email, linkedin, github, bio, tags } = userInfo;
 
   const { userAvatar } = images;
 
-  const handleWindowChange = () => {
-    setGroupWidth(
-      {
-        page: computeWidth(0.05),
-        avatar: computeWidth(0.43),
-        text: computeWidth(0.37)
-      }
-    );
-  };
-
-  useEffect(() => {
-      handleWindowChange();
-      window.addEventListener("resize", handleWindowChange);
-
-      return () => {
-        window.removeEventListener("resize", handleWindowChange);
-      };
-    }, []
-  );
-
   return (
     <Page>
 
-      <Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center" sx={{ width: `${groupWidth["page"]}px`, maxWidth: `${groupWidth["page"]}px` }}>
+      <Grid container spacing={ 0 } direction="column" justifyContent="center" alignItems="center">
 
         <Grid item xs={ 12 } sx={{ mt: 5 }}>
           <Avatar alt={ name } src={ userAvatar } align="center" sx={{ bgcolor: "#9CF", width: "15vw", height: "15vw", fontSize: "4vw", objectFit: "contain" }}>{ name }</Avatar>
