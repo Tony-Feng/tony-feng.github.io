@@ -34,7 +34,7 @@ jobs:
         run: npm run build --if-present
 
       - name: Semantic release
-        with:
+        env:
           github_token: ${{ secrets.GH_TOKEN }}
         run: npx semantic-release
 
