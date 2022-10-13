@@ -1,9 +1,12 @@
 # My Portfolio
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/tony-feng/tony-feng.github.io)
+![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/tony-feng/tony-feng.github.io/main)
 ![GitHub](https://img.shields.io/github/license/tony-feng/tony-feng.github.io)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/tony-feng/tony-feng.github.io)
 ![Lines of code](https://img.shields.io/tokei/lines/github/tony-feng/tony-feng.github.io)
+
+[![SemVer Release](https://github.com/Tony-Feng/tony-feng.github.io/actions/workflows/semver-release.yaml/badge.svg?branch=main)](https://github.com/Tony-Feng/tony-feng.github.io/actions/workflows/semver-release.yaml)
+[![Release GitHub Pages](https://github.com/Tony-Feng/tony-feng.github.io/actions/workflows/release-github-pages.yaml/badge.svg?branch=main)](https://github.com/Tony-Feng/tony-feng.github.io/actions/workflows/release-github-pages.yaml)
 
 A portfolio page developed using React and Redux. It's based on one of my previous projects.
 The link is here: [tony-feng.github.io](http://tony-feng.github.io/).
@@ -30,5 +33,5 @@ npm i react-router-dom prop-types @loadable/component \
   react-countdown react-lines-ellipsis
 npm i @reduxjs/toolkit react-redux redux-thunk redux-persist
 npm i gh-pages --save-dev
-npm i @semantic-release/git @semantic-release/changelog --save-dev
+npm i @semantic-release/git @semantic-release/changelog @saithodev/semantic-release-backmerge --save-dev
 ```
