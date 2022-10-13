@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Tony-Feng/tony-feng.github.io/compare/v1.1.0...v1.1.1) (2022-10-13)
+
+
+### Bug Fixes
+
+* explicitly name config ([7f73774](https://github.com/Tony-Feng/tony-feng.github.io/commit/7f737745333fe5c97ef90e67f113f862777f280f))
+
 # [1.1.0](https://github.com/Tony-Feng/tony-feng.github.io/compare/v1.0.1...v1.1.0) (2022-10-13)
 
 
