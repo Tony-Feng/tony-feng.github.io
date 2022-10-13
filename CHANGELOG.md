@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Tony-Feng/tony-feng.github.io/compare/v1.0.1...v1.1.0) (2022-10-13)
+
+
+### Features
+
+* combine 2 workflows ([051fadb](https://github.com/Tony-Feng/tony-feng.github.io/commit/051fadb37a9d6a12ed953798ad229bd16bfec929))
+
 ## [1.0.1](https://github.com/Tony-Feng/tony-feng.github.io/compare/v1.0.0...v1.0.1) (2022-10-13)
 
 
