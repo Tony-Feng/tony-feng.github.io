@@ -9,6 +9,7 @@
     "mui",
     "redux"
   ],
+  "license": "BSD 3-Clause \"New\" or \"Revised\"",
   "private": true,
   "plugins": [
     "@semantic-release/commit-analyzer",
@@ -19,6 +20,10 @@
     "@semantic-release/git"
   ],
   "release": {
+    "branches": [
+      "main",
+      "next"
+    ],
     "prepare": [
       "@semantic-release/changelog",
       "@semantic-release/npm",
