@@ -22,8 +22,12 @@
       "@saithodev/semantic-release-backmerge",
       {
         "branches": [
-          "dev"
-        ]
+          {
+            "from": "main",
+            "to": "dev"
+          }
+        ],
+        "backmergeStrategy": "merge"
       }
     ]
   ],
