@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Tony-Feng/tony-feng.github.io/compare/v1.1.3...v1.2.0) (2022-10-13)
+
+
+### Features
+
+* proj list width fits ([4e37e70](https://github.com/Tony-Feng/tony-feng.github.io/commit/4e37e706662d03abd1f8b3a63908e45727f239ab))
+
 ## [1.1.3](https://github.com/Tony-Feng/tony-feng.github.io/compare/v1.1.2...v1.1.3) (2022-10-13)
 
 
