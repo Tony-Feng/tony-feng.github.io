@@ -17,7 +17,13 @@
     "@semantic-release/changelog",
     "@semantic-release/github",
     "@semantic-release/npm",
-    "@semantic-release/git"
+    "@semantic-release/git",
+    [
+      "@saithodev/semantic-release-backmerge",
+      {
+        "branches": ["dev"]
+      }
+    ]
   ],
   "release": {
     "branches": [
@@ -88,6 +94,7 @@
     ]
   },
   "devDependencies": {
+    "@saithodev/semantic-release-backmerge": "^2.1.2",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "gh-pages": "^4.0.0"
