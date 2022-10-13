@@ -1,9 +1,10 @@
 # My Portfolio
 
 ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/tony-feng/tony-feng.github.io/main)
-![GitHub](https://img.shields.io/github/license/tony-feng/tony-feng.github.io)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/tony-feng/tony-feng.github.io)
 ![Lines of code](https://img.shields.io/tokei/lines/github/tony-feng/tony-feng.github.io)
+![GitHub](https://img.shields.io/github/license/tony-feng/tony-feng.github.io)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 [![SemVer Release GitHub Pages](https://github.com/Tony-Feng/tony-feng.github.io/actions/workflows/semver-release-github-pages.yaml/badge.svg?branch=main)](https://github.com/Tony-Feng/tony-feng.github.io/actions/workflows/semver-release-github-pages.yaml)
 
