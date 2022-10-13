@@ -1,3 +1,11 @@
+## [1.1.3](https://github.com/Tony-Feng/tony-feng.github.io/compare/v1.1.2...v1.1.3) (2022-10-13)
+
+
+### Bug Fixes
+
+* fix checkout to get latest commit ([87fdfff](https://github.com/Tony-Feng/tony-feng.github.io/commit/87fdfff75ca68dbcbd9c13a817f7b6028aefb015))
+* fix yaml indentation ([7362619](https://github.com/Tony-Feng/tony-feng.github.io/commit/7362619d61ff965ecb13bbfc30d6c9c91f54531b))
+
 ## [1.1.2](https://github.com/Tony-Feng/tony-feng.github.io/compare/v1.1.1...v1.1.2) (2022-10-13)
 
 
