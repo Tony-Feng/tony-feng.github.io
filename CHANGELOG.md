@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/Tony-Feng/tony-feng.github.io/compare/v1.0.0...v1.0.1) (2022-10-13)
+
+
+### Bug Fixes
+
+* add more badges ([ccd06c9](https://github.com/Tony-Feng/tony-feng.github.io/commit/ccd06c9a8483c309e6ad085c85578202f288b603))
+* fix conflict ([145883b](https://github.com/Tony-Feng/tony-feng.github.io/commit/145883bd9b23cf2b56d845bcd39657e0b032caf9))
+
 # 1.0.0 (2022-10-13)
 
 
